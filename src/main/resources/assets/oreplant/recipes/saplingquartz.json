@@ -1,0 +1,26 @@
+{
+    "type":"forge:ore_shaped",
+    "group": "oreplant:recipes",
+    "pattern":[
+        "ABA",
+        "BCB",
+        "ABA"
+    ],
+    "key":{
+        "A":{
+            "item":"minecraft:quartz"
+        },
+        "B":{
+            "type": "forge:ore_dict",
+             "ore": "treeSapling"
+        },
+        "C":{
+            "item":"minecraft:quartz_block",
+            "data": 0
+        }
+    },
+    "result":{
+        "item":"oreplant:saplingquartz",
+        "count":1
+    }
+}

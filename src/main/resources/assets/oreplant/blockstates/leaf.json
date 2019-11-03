@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "leaves",
+    "textures": {
+      "all": "oreplant:blocks/tree/leaves"
+    }
+  },
+  "variants": {
+    "inventory": [{}]
+  }
+}

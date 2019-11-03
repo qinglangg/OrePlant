@@ -1,0 +1,29 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_column",
+    "textures": {
+      "end": "oreplant:blocks/tree/end/lapis",
+      "side": "oreplant:blocks/tree/side/lapis"
+    }
+  },
+  "variants": {
+    "inventory": [{}],
+    "axis": {
+      "x": {
+        "x": 90,
+        "y": 90
+      },
+      "y": {},
+      "z": {
+        "x": 90
+      },
+      "none": {
+        "model": "cube_all",
+        "textures": {
+          "all": "oreplant:blocks/tree/side/lapis"
+        }
+      }
+    }
+  }
+}

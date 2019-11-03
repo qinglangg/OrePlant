@@ -1,0 +1,17 @@
+package com.ore.oreplant.render;
+
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Objects;
+
+@SideOnly(Side.CLIENT)
+public class SaplingMap extends StateMapperBase {
+    @Override
+    protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+        return new ModelResourceLocation(Objects.requireNonNull(state.getBlock().getRegistryName()), "inventory");
+    }
+}
