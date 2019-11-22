@@ -1,66 +1,59 @@
 package com.ore.oreplant.plants;
 
+import com.google.common.collect.Lists;
 import com.ore.oreplant.OreTabs;
-import com.ore.oreplant.render.IColorProvider;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockReed;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
-import java.util.function.Supplier;
 
-public class Reeds extends BlockReed implements IColorProvider {
+public class Reeds extends BlockReed {
 
-    private final Supplier<List<ItemStack>> drops;
     private final int color;
     private final Block colorBlock;
 
-    private Reeds(int color, Block colorBlock, Supplier<List<ItemStack>> drops) {
-        this.drops = drops;
+    private Reeds(int color, Block colorBlock) {
         this.color = color;
         this.colorBlock = colorBlock;
         setCreativeTab(OreTabs.TAB);
+        setHardness(0.0F);
+        setStepSound(soundTypeGrass);
+        setBlockTextureName("reeds");
+        disableStats();
     }
 
-    public Reeds(int color, Supplier<List<ItemStack>> drops) {
-        this(color, null, drops);
+    public Reeds(int color) {
+        this(color, null);
     }
 
-    public Reeds(Block color, Supplier<List<ItemStack>> drops) {
-        this(0, color, drops);
+    public Reeds(Block color) {
+        this(0, color);
     }
 
     @Override
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        int maxHeight = 3;
-        int maxAge = 15;
-
-        if (worldIn.getBlockState(pos.down()).getBlock() == Blocks.REEDS || checkForDrop(worldIn, pos, state)) {
-            if (worldIn.isAirBlock(pos.up())) {
+    public void updateTick(World worldIn, int x, int y, int z, Random random) {
+        if (worldIn.getBlock(x, y - 1, z) == this || func_150170_e(worldIn, x, y, z)) {
+            if (worldIn.isAirBlock(x, y + 1, z)) {
                 int i = 1;
-                BlockPos p = pos.down();
-                while (worldIn.getBlockState(p).getBlock() == this) {
+                int posY = y - 1;
+                while (worldIn.getBlock(x, posY, z) == this) {
                     i++;
-                    p = p.down();
+                    posY--;
                 }
-                if (i < maxHeight) {
-                    int j = state.getValue(AGE);
-                    if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
-                        if (j >= maxAge) {
-                            BlockPos up = pos.up();
-                            worldIn.setBlockState(up, this.getDefaultState());
-                            worldIn.setBlockState(pos, state.withProperty(AGE, 0), 4);
-                        } else {
-                            worldIn.setBlockState(pos, state.withProperty(AGE, j + 1), 4);
-                        }
-                        net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
+                if (i < 3) {
+                    int j = worldIn.getBlockMetadata(x, y, z);
+                    if (j >= 15) {
+                        worldIn.setBlock(x, y + 1, z, this);
+                        worldIn.setBlockMetadataWithNotify(x, y + 1, z, 0, 4);
+                    } else {
+                        worldIn.setBlockMetadataWithNotify(x, y, z, j + 1, 4);
                     }
                 }
             }
@@ -68,15 +61,15 @@ public class Reeds extends BlockReed implements IColorProvider {
     }
 
     @Override
-    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-        drops.add(new ItemStack(this));
-        drops.addAll(this.drops.get());
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+        return Lists.newArrayList(new ItemStack(this));
     }
 
     @Override
-    public int getColor(IBlockAccess world, IBlockState state, BlockPos pos, ItemStack stack) {
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess p_149720_1_, int p_149720_2_, int p_149720_3_, int p_149720_4_) {
         if (colorBlock != null) {
-            return colorBlock.getDefaultState().getMapColor(world, pos).colorValue;
+            return colorBlock.getMapColor(0).colorValue;
         }
         return color;
     }

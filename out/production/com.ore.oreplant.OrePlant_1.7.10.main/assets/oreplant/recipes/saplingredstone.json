@@ -1,0 +1,25 @@
+{
+    "type":"minecraft:crafting_shaped",
+    "group": "oreplant:recipes",
+    "pattern":[
+        "ABA",
+        "BCB",
+        "ABA"
+    ],
+    "key":{
+        "A":{
+            "item":"minecraft:redstone"
+        },
+        "B":{
+            "type": "forge:ore_dict",
+             "ore": "treeSapling"
+        },
+        "C":{
+            "item":"minecraft:redstone_block"
+        }
+    },
+    "result":{
+        "item":"oreplant:saplingredstone",
+        "count":1
+    }
+}

@@ -1,7 +1,7 @@
 package com.ore.oreplant;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
 
 public class OreTabs extends CreativeTabs {
 
@@ -17,8 +17,8 @@ public class OreTabs extends CreativeTabs {
     }
 
     @Override
-    public ItemStack getTabIconItem() {
-        return new ItemStack(Seeds.saplingCoal);
+    public Item getTabIconItem() {
+        return Item.getItemFromBlock(Seeds.saplingCoal);
     }
 
 //    @Override

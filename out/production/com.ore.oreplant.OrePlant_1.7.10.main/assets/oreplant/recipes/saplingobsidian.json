@@ -1,0 +1,22 @@
+{
+    "type":"minecraft:crafting_shaped",
+    "group": "oreplant:recipes",
+    "pattern":[
+        "ABA",
+        "BAB",
+        "ABA"
+    ],
+    "key":{
+        "A":{
+            "item":"minecraft:obsidian"
+        },
+        "B":{
+            "type": "forge:ore_dict",
+             "ore": "treeSapling"
+        }
+    },
+    "result":{
+        "item":"oreplant:saplingobsidian",
+        "count":1
+    }
+}

@@ -1,40 +1,44 @@
 package com.ore.oreplant.plants.tree;
 
 import com.elementtimes.elementcore.api.common.ECUtils;
+import com.google.common.collect.Lists;
 import com.ore.oreplant.OreTabs;
-import com.ore.oreplant.render.IColorProvider;
+import cpw.mods.fml.common.registry.GameData;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
-public class Leaf extends BlockLeaves implements IColorProvider {
+public class Leaf extends BlockLeaves {
 
     private final Supplier<BlockSapling> sapling;
 
+    private IIcon icon;
     private final int color;
-    private final IBlockState colorState;
+    private final Block colorBlock;
 
-    private Leaf(int color, IBlockState colorState, Supplier<BlockSapling> sapling) {
+    private Leaf(int color, Block colorBlock, Supplier<BlockSapling> sapling) {
         setCreativeTab(OreTabs.TAB);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, false).withProperty(DECAYABLE, true));
         this.sapling = sapling;
         if (ECUtils.common.isClient()) {
             net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getMinecraft();
             setGraphicsLevel(mc.gameSettings.fancyGraphics);
         }
         this.color = color;
-        this.colorState = colorState;
+        this.colorBlock = colorBlock;
     }
 
     public Leaf(int color, Supplier<BlockSapling> sapling) {
@@ -42,54 +46,59 @@ public class Leaf extends BlockLeaves implements IColorProvider {
     }
 
     public Leaf(Block color, Supplier<BlockSapling> sapling) {
-        this(0, color.getDefaultState(), sapling);
-    }
-
-    public Leaf(IBlockState color, Supplier<BlockSapling> sapling) {
         this(0, color, sapling);
     }
 
     @Override
-    public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(DECAYABLE, (meta & 4) == 0).withProperty(CHECK_DECAY, (meta & 8) > 0);
-    }
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        int chance = this.func_150123_b(metadata);
 
-    @Override
-    public int getMetaFromState(IBlockState state) {
-        int i = 0;
-        if (!state.getValue(DECAYABLE)) {
-            i |= 4;
+        if (fortune > 0) {
+            chance -= 2 << fortune;
+            if (chance < 10) chance = 10;
         }
-        if (state.getValue(CHECK_DECAY)) {
-            i |= 8;
-        }
-        return i;
+
+        if (world.rand.nextInt(chance) == 0)
+            ret.add(new ItemStack(sapling.get()));
+
+        this.captureDrops(true);
+        ret.addAll(this.captureDrops(false));
+        return ret;
     }
 
     @Override
-    public BlockPlanks.EnumType getWoodType(int meta) {
-        return null;
+    public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
+        return Lists.newArrayList(new ItemStack(this));
     }
 
     @Override
-    protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, CHECK_DECAY, DECAYABLE);
+    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
+        p_149666_3_.add(new ItemStack(this));
     }
 
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return  Item.getItemFromBlock(sapling.get());
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
+        return icon;
     }
 
     @Override
-    public NonNullList<ItemStack> onSheared(ItemStack item, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune) {
-        return NonNullList.withSize(1, new ItemStack(this));
+    public String[] func_150125_e() {
+        return new String[0];
     }
 
     @Override
-    public int getColor(IBlockAccess world, IBlockState state, BlockPos pos, ItemStack stack) {
-        if (colorState != null) {
-            return colorState.getMapColor(world, pos).colorValue;
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister register) {
+        icon = register.registerIcon("oreplant:leaves");
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess p_149720_1_, int p_149720_2_, int p_149720_3_, int p_149720_4_) {
+        if (colorBlock != null) {
+            return colorBlock.getMapColor(0).colorValue;
         }
         return color;
     }

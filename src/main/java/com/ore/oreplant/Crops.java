@@ -12,153 +12,113 @@ import net.minecraft.block.BlockReed;
 import net.minecraft.block.BlockStem;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Crops {
 
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatCoal = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatCoal), new ItemStack(Items.COAL)));
+    public static BlockCrops wheatCoal = new Wheat("coal", () -> new ItemStack(Items.coal), () -> new ItemStack(Seeds.seedWheatCoal));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatDiamond = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatDiamond), new ItemStack(Items.DIAMOND)));
+    public static BlockCrops wheatDiamond = new Wheat("diamond", () -> new ItemStack(Items.diamond),() -> new ItemStack(Seeds.seedWheatDiamond));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatEmerald = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatEmerald), new ItemStack(Items.EMERALD)));
+    public static BlockCrops wheatEmerald = new Wheat("emerald", () -> new ItemStack(Items.emerald), () -> new ItemStack(Seeds.seedWheatEmerald));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatGold = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatGold), new ItemStack(Items.GOLD_INGOT)));
+    public static BlockCrops wheatGold = new Wheat("gold", () -> new ItemStack(Items.gold_ingot), () -> new ItemStack(Seeds.seedWheatGold));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatIron = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatIron), new ItemStack(Items.IRON_INGOT)));
+    public static BlockCrops wheatIron = new Wheat("iron", () -> new ItemStack(Items.iron_ingot), () -> new ItemStack(Seeds.seedWheatIron));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatLapis = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatLapis), new ItemStack(Items.DYE, 1, 0)));
+    public static BlockCrops wheatLapis = new Wheat("lapis", () -> new ItemStack(Items.dye, 1, 0), () -> new ItemStack(Seeds.seedWheatLapis));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatRedstone = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatRedstone), new ItemStack(Items.REDSTONE)));
+    public static BlockCrops wheatRedstone = new Wheat("redstone", () -> new ItemStack(Items.redstone), () -> new ItemStack(Seeds.seedWheatRedstone));
 
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedCoal = new Reeds(Blocks.COAL_ORE, () -> Collections.singletonList(new ItemStack(Items.COAL)));
+    public static BlockReed reedCoal = new Reeds(Blocks.coal_block);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedDiamond = new Reeds(Blocks.DIAMOND_BLOCK, () -> Collections.singletonList(new ItemStack(Items.DIAMOND)));
+    public static BlockReed reedDiamond = new Reeds(Blocks.diamond_block);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedEmerald = new Reeds(Blocks.EMERALD_BLOCK, () -> Collections.singletonList(new ItemStack(Items.EMERALD)));
+    public static BlockReed reedEmerald = new Reeds(Blocks.emerald_block);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedGold = new Reeds(Blocks.GOLD_BLOCK, () -> Collections.singletonList(new ItemStack(Items.GOLD_INGOT)));
+    public static BlockReed reedGold = new Reeds(Blocks.gold_block);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedIron = new Reeds(Blocks.IRON_BLOCK, () -> Collections.singletonList(new ItemStack(Items.IRON_INGOT)));
+    public static BlockReed reedIron = new Reeds(Blocks.iron_block);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedLapis = new Reeds(Blocks.LAPIS_BLOCK, () -> Collections.singletonList(new ItemStack(Items.DYE, 1, 4)));
+    public static BlockReed reedLapis = new Reeds(Blocks.lapis_block);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedRedstone = new Reeds(Blocks.REDSTONE_BLOCK, () -> Collections.singletonList(new ItemStack(Items.REDSTONE)));
+    public static BlockReed reedRedstone = new Reeds(Blocks.redstone_block);
+    @ModBlock
+    public static BlockReed reedGlowstone = new Reeds(Blocks.glowstone);
 
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.PumpkinStemMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
     @SkipGroup
-    public static BlockStem pumpkinCoalStem = new PumpkinStem(Blocks.COAL_ORE, Blocks.COAL_ORE, () -> Seeds.seedPumpkinCoal);
+    public static BlockStem pumpkinCoalStem = new PumpkinStem(Blocks.coal_ore, Blocks.coal_ore, () -> Seeds.seedPumpkinCoal);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.PumpkinStemMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
     @SkipGroup
-    public static BlockStem pumpkinDiamondStem = new PumpkinStem(Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE, () -> Seeds.seedPumpkinDiamond);
+    public static BlockStem pumpkinDiamondStem = new PumpkinStem(Blocks.diamond_block, Blocks.diamond_ore, () -> Seeds.seedPumpkinDiamond);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.PumpkinStemMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
     @SkipGroup
-    public static BlockStem pumpkinEmeraldStem = new PumpkinStem(Blocks.EMERALD_BLOCK, Blocks.EMERALD_ORE, () -> Seeds.seedPumpkinEmerald);
+    public static BlockStem pumpkinEmeraldStem = new PumpkinStem(Blocks.emerald_block, Blocks.emerald_ore, () -> Seeds.seedPumpkinEmerald);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.PumpkinStemMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
     @SkipGroup
-    public static BlockStem pumpkinGoldStem = new PumpkinStem(Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, () -> Seeds.seedPumpkinGold);
+    public static BlockStem pumpkinGoldStem = new PumpkinStem(Blocks.gold_block, Blocks.gold_ore, () -> Seeds.seedPumpkinGold);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.PumpkinStemMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
     @SkipGroup
-    public static BlockStem pumpkinIronStem = new PumpkinStem(Blocks.IRON_BLOCK, Blocks.IRON_ORE,() ->  Seeds.seedPumpkinIron);
+    public static BlockStem pumpkinIronStem = new PumpkinStem(Blocks.iron_block, Blocks.iron_ore,() ->  Seeds.seedPumpkinIron);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.PumpkinStemMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
     @SkipGroup
-    public static BlockStem pumpkinLapisStem = new PumpkinStem(Blocks.LAPIS_BLOCK, Blocks.LAPIS_ORE, () -> Seeds.seedPumpkinLapis);
+    public static BlockStem pumpkinLapisStem = new PumpkinStem(Blocks.lapis_block, Blocks.lapis_ore, () -> Seeds.seedPumpkinLapis);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.PumpkinStemMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
     @SkipGroup
-    public static BlockStem pumpkinRedstoneStem = new PumpkinStem(Blocks.REDSTONE_BLOCK, Blocks.REDSTONE_ORE, () -> Seeds.seedPumpkinRedstone);
+    public static BlockStem pumpkinRedstoneStem = new PumpkinStem(Blocks.redstone_block, Blocks.redstone_ore, () -> Seeds.seedPumpkinRedstone);
 
     @ModBlock
-    public static Wood woodCoal = new Wood(Blocks.COAL_BLOCK);
+    public static Wood woodCoal = new Wood("coal");
     @ModBlock
-    public static Wood woodDiamond = new Wood(Blocks.DIAMOND_BLOCK);
+    public static Wood woodDiamond = new Wood("diamond");
     @ModBlock
-    public static Wood woodEmerald = new Wood(Blocks.EMERALD_BLOCK);
+    public static Wood woodEmerald = new Wood("emerald");
     @ModBlock
-    public static Wood woodGold = new Wood(Blocks.GOLD_BLOCK);
+    public static Wood woodGold = new Wood("gold");
     @ModBlock
-    public static Wood woodIron = new Wood(Blocks.IRON_BLOCK);
+    public static Wood woodIron = new Wood("iron");
     @ModBlock
-    public static Wood woodLapis = new Wood(Blocks.LAPIS_BLOCK);
+    public static Wood woodLapis = new Wood("lapis");
     @ModBlock
-    public static Wood woodRedstone = new Wood(Blocks.REDSTONE_BLOCK);
+    public static Wood woodRedstone = new Wood("redstone");
     @ModBlock
-    public static Wood woodQuartz = new Wood(Blocks.QUARTZ_BLOCK);
+    public static Wood woodQuartz = new Wood("quartz");
     @ModBlock
-    public static Wood woodObsidian = new Wood(Blocks.OBSIDIAN);
+    public static Wood woodObsidian = new Wood("obsidian");
+    @ModBlock
+    public static Wood woodGlowstone = new Wood("glowstone");
 
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.LeafMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static Leaf leafCoal = new Leaf(Blocks.COAL_BLOCK, () -> Seeds.saplingCoal);
+    public static Leaf leafCoal = new Leaf(Blocks.coal_block, () -> Seeds.saplingCoal);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.LeafMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static Leaf leafDiamond = new Leaf(Blocks.DIAMOND_BLOCK, () -> Seeds.saplingDiamond);
+    public static Leaf leafDiamond = new Leaf(Blocks.diamond_block, () -> Seeds.saplingDiamond);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.LeafMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static Leaf leafEmerald = new Leaf(Blocks.EMERALD_BLOCK, () -> Seeds.saplingEmerald);
+    public static Leaf leafEmerald = new Leaf(Blocks.emerald_block, () -> Seeds.saplingEmerald);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.LeafMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static Leaf leafGold = new Leaf(Blocks.GOLD_BLOCK, () -> Seeds.saplingGold);
+    public static Leaf leafGold = new Leaf(Blocks.gold_block, () -> Seeds.saplingGold);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.LeafMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static Leaf leafIron = new Leaf(Blocks.IRON_BLOCK, () -> Seeds.saplingIron);
+    public static Leaf leafIron = new Leaf(Blocks.iron_block, () -> Seeds.saplingIron);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.LeafMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static Leaf leafLapis = new Leaf(Blocks.LAPIS_BLOCK, () -> Seeds.saplingLapis);
+    public static Leaf leafLapis = new Leaf(Blocks.lapis_block, () -> Seeds.saplingLapis);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.LeafMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static Leaf leafRedstone = new Leaf(Blocks.REDSTONE_BLOCK, () -> Seeds.saplingRedstone);
+    public static Leaf leafRedstone = new Leaf(Blocks.redstone_block, () -> Seeds.saplingRedstone);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.LeafMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static Leaf leafQuartz = new Leaf(Blocks.QUARTZ_BLOCK, () -> Seeds.saplingQuartz);
+    public static Leaf leafQuartz = new Leaf(Blocks.quartz_block, () -> Seeds.saplingQuartz);
     @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.LeafMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static Leaf leafObsidian = new Leaf(Blocks.OBSIDIAN, () -> Seeds.saplingObsidian);
+    public static Leaf leafObsidian = new Leaf(Blocks.obsidian, () -> Seeds.saplingObsidian);
+    @ModBlock
+    public static Leaf leafGlowstone = new Leaf(Blocks.glowstone, () -> Seeds.saplingGlowstone);
 }

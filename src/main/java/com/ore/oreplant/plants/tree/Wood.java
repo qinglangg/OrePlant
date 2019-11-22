@@ -1,83 +1,48 @@
 package com.ore.oreplant.plants.tree;
 
 import com.ore.oreplant.OreTabs;
-import net.minecraft.block.Block;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockLog;
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 
-import javax.annotation.Nonnull;
+import java.util.List;
 
 public class Wood extends BlockLog {
 
-    private final MapColor mMapColor;
-    private final IBlockState mStateColor;
+    private final String textureKey;
+    private IIcon side, top;
 
-    private Wood(MapColor color, IBlockState colorState) {
-        super();
+    public Wood(String textureKey) {
+        this.textureKey = textureKey;
         setCreativeTab(OreTabs.TAB);
-        mMapColor = color;
-        mStateColor = colorState;
-        setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
-    }
-
-    public Wood(MapColor color) {
-        this(color, null);
-    }
-
-    public Wood(Block color) {
-        this(null, color.getDefaultState());
-    }
-
-    public Wood(IBlockState color) {
-        this(null, color);
     }
 
     @Override
-    @Nonnull
-    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-        if (mMapColor != null) {
-            return mMapColor;
-        } else if (mStateColor != null) {
-            return mStateColor.getMapColor(worldIn, pos);
-        } else {
-            return Blocks.LOG.getDefaultState().getMapColor(worldIn, pos);
-        }
+    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
+        p_149666_3_.add(new ItemStack(this));
     }
 
     @Override
-    @Nonnull
-    public IBlockState getStateFromMeta(int meta) {
-        IBlockState state = getDefaultState();
-        if ((meta & 0b0001) == 0b0001) {
-            return state.withProperty(LOG_AXIS, EnumAxis.X);
-        } else if ((meta & 0b0010) == 0b0010) {
-            return state.withProperty(LOG_AXIS, EnumAxis.Y);
-        } else if ((meta & 0b0011) == 0b0011) {
-            return state.withProperty(LOG_AXIS, EnumAxis.Z);
-        } else {
-            return state.withProperty(LOG_AXIS, EnumAxis.NONE);
-        }
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister render) {
+        top = render.registerIcon("oreplant:wood_top_" + textureKey);
+        side = render.registerIcon("oreplant:wood_side_" + textureKey);
     }
 
     @Override
-    public int getMetaFromState(IBlockState state) {
-        switch (state.getValue(LOG_AXIS)) {
-            case X: return 0b0001;
-            case Y: return 0b0010;
-            case Z: return 0b0011;
-            default: return 0b0000;
-        }
+    @SideOnly(Side.CLIENT)
+    protected IIcon getSideIcon(int p_150163_1_) {
+        return side;
     }
 
     @Override
-    @Nonnull
-    protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, LOG_AXIS);
+    @SideOnly(Side.CLIENT)
+    protected IIcon getTopIcon(int p_150161_1_) {
+        return top;
     }
 }
