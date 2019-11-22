@@ -12,29 +12,25 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.List;
 import java.util.Random;
-import java.util.function.Supplier;
 
 public class Reeds extends BlockReed implements IColorProvider {
 
-    private final Supplier<List<ItemStack>> drops;
     private final int color;
     private final Block colorBlock;
 
-    private Reeds(int color, Block colorBlock, Supplier<List<ItemStack>> drops) {
-        this.drops = drops;
+    private Reeds(int color, Block colorBlock) {
         this.color = color;
         this.colorBlock = colorBlock;
         setCreativeTab(OreTabs.TAB);
     }
 
-    public Reeds(int color, Supplier<List<ItemStack>> drops) {
-        this(color, null, drops);
+    public Reeds(int color) {
+        this(color, null);
     }
 
-    public Reeds(Block color, Supplier<List<ItemStack>> drops) {
-        this(0, color, drops);
+    public Reeds(Block color) {
+        this(0, color);
     }
 
     @Override
@@ -70,7 +66,6 @@ public class Reeds extends BlockReed implements IColorProvider {
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         drops.add(new ItemStack(this));
-        drops.addAll(this.drops.get());
     }
 
     @Override

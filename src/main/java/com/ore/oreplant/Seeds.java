@@ -67,4 +67,7 @@ public class Seeds {
     @ModBlock
     @ModBlock.StateMapperCustom("com.ore.oreplant.render.SaplingMap")
     public static Sapling saplingObsidian = new Sapling(() -> new RubberGenerator(false, Crops.woodObsidian, Crops.leafObsidian));
+    @ModBlock
+    @ModBlock.StateMapperCustom("com.ore.oreplant.render.SaplingMap")
+    public static Sapling saplingGlowstone = new Sapling(() -> new RubberGenerator(false, Crops.woodGlowstone, Crops.leafGlowstone));
 }

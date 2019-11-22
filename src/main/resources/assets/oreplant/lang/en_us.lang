@@ -24,6 +24,7 @@ tile.oreplant.saplinglapis.name=Lapis Sapling
 tile.oreplant.saplingredstone.name=Redstone Sapling
 tile.oreplant.saplingquartz.name=Quartz Sapling
 tile.oreplant.saplingobsidian.name=Obsidian Sapling
+tile.oreplant.saplingglowstone.name=Glowstone Sapling
 # crop
 tile.oreplant.wheatcoal.name=Wheat(Coal)
 tile.oreplant.wheatdiamond.name=Wheat(Diamond)
@@ -49,6 +50,7 @@ tile.oreplant.leaflapis.name=Lapis Leaf
 tile.oreplant.leafredstone.name=Redstone Leaf
 tile.oreplant.leafquartz.name=Quartz Leaf
 tile.oreplant.leafobsidian.name=Obsidian Leaf
+tile.oreplant.leafglowstone.name=Glowstone Leaf
 # wood
 tile.oreplant.woodcoal.name=Coal Log
 tile.oreplant.wooddiamond.name=Diamond Log
@@ -59,6 +61,7 @@ tile.oreplant.woodlapis.name=Lapis Log
 tile.oreplant.woodredstone.name=Redstone Log
 tile.oreplant.woodquartz.name=Quartz Log
 tile.oreplant.woodobsidian.name=Obsidian Log
+tile.oreplant.woodglowstone.name=Glowstone Log
 # reed
 tile.oreplant.reedcoal.name=Coal Reed
 tile.oreplant.reeddiamond.name=Diamond Reed
@@ -67,6 +70,7 @@ tile.oreplant.reedgold.name=Gold Reed
 tile.oreplant.reediron.name=Iron Reed
 tile.oreplant.reedlapis.name=Lapis Reed
 tile.oreplant.reedredstone.name=Redstone Reed
+tile.oreplant.reedglowstone.name=Glowstone Reed
 # ore
 tile.oreplant.gold_ore.name=gold_ore
 tile.oreplant.diamond_ore.name=diamond_ore
