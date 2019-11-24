@@ -24,6 +24,12 @@ public class Seeds {
     public static Item seedWheatLapis = new ItemSeeds(Crops.wheatLapis, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:wheat_lapis");
     @ModItem
     public static Item seedWheatRedstone = new ItemSeeds(Crops.wheatRedstone, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:wheat_redstone");
+    @ModItem
+    public static Item seedWheatQuartz = new ItemSeeds(Crops.wheatQuartz, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:wheat_quartz");
+    @ModItem
+    public static Item seedWheatObsidian = new ItemSeeds(Crops.wheatObsidian, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:wheat_obsidian");
+    @ModItem
+    public static Item seedWheatGlowstone = new ItemSeeds(Crops.wheatGlowstone, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:wheat_glowstone");
 
     @ModItem
     public static Item seedPumpkinCoal = new ItemSeeds(Crops.pumpkinCoalStem, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:pumpkin_coal");
@@ -39,6 +45,12 @@ public class Seeds {
     public static Item seedPumpkinLapis = new ItemSeeds(Crops.pumpkinLapisStem, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:pumpkin_lapis");
     @ModItem
     public static Item seedPumpkinRedstone = new ItemSeeds(Crops.pumpkinRedstoneStem, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:pumpkin_redstone");
+    @ModItem
+    public static Item seedPumpkinQuartz = new ItemSeeds(Crops.pumpkinQuartzStem, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:pumpkin_quartz");
+    @ModItem
+    public static Item seedPumpkinObsidian = new ItemSeeds(Crops.pumpkinObsidianStem, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:pumpkin_obsidian");
+    @ModItem
+    public static Item seedPumpkinGlowstone = new ItemSeeds(Crops.pumpkinGlowstoneStem, Blocks.farmland).setCreativeTab(OreTabs.TAB).setTextureName("oreplant:pumpkin_glowstone");
 
     @ModBlock
     public static Sapling saplingCoal = new Sapling("coal", () -> new RubberGenerator(false, Crops.woodCoal, Crops.leafCoal, () -> Seeds.saplingCoal));

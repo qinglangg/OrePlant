@@ -40,6 +40,15 @@ public class Crops {
     @ModBlock
     @SkipGroup
     public static BlockCrops wheatRedstone = new Wheat("redstone", () -> new ItemStack(Items.redstone), () -> new ItemStack(Seeds.seedWheatRedstone));
+    @ModBlock
+    @SkipGroup
+    public static BlockCrops wheatQuartz = new Wheat("quartz", () -> new ItemStack(Items.quartz), () -> new ItemStack(Seeds.seedWheatQuartz));
+    @ModBlock
+    @SkipGroup
+    public static BlockCrops wheatObsidian = new Wheat("obsidian", () -> new ItemStack(Blocks.obsidian), () -> new ItemStack(Seeds.seedWheatObsidian));
+    @ModBlock
+    @SkipGroup
+    public static BlockCrops wheatGlowstone = new Wheat("glowstone", () -> new ItemStack(Items.glowstone_dust), () -> new ItemStack(Seeds.seedWheatGlowstone));
 
     @ModBlock
     public static BlockReed reedCoal = new Reeds(Blocks.coal_block);
@@ -55,6 +64,10 @@ public class Crops {
     public static BlockReed reedLapis = new Reeds(Blocks.lapis_block);
     @ModBlock
     public static BlockReed reedRedstone = new Reeds(Blocks.redstone_block);
+    @ModBlock
+    public static BlockReed reedQuartz = new Reeds(Blocks.quartz_block);
+    @ModBlock
+    public static BlockReed reedObsidian = new Reeds(Blocks.obsidian);
     @ModBlock
     public static BlockReed reedGlowstone = new Reeds(Blocks.glowstone);
 
@@ -79,6 +92,15 @@ public class Crops {
     @ModBlock
     @SkipGroup
     public static BlockStem pumpkinRedstoneStem = new PumpkinStem(Blocks.redstone_block, Blocks.redstone_ore, () -> Seeds.seedPumpkinRedstone);
+    @ModBlock
+    @SkipGroup
+    public static BlockStem pumpkinQuartzStem = new PumpkinStem(Blocks.quartz_block, Blocks.quartz_ore, () -> Seeds.seedPumpkinQuartz);
+    @ModBlock
+    @SkipGroup
+    public static BlockStem pumpkinObsidianStem = new PumpkinStem(Blocks.obsidian, Blocks.obsidian, () -> Seeds.seedPumpkinObsidian);
+    @ModBlock
+    @SkipGroup
+    public static BlockStem pumpkinGlowstoneStem = new PumpkinStem(Blocks.glowstone, Blocks.glowstone, () -> Seeds.seedPumpkinGlowstone);
 
     @ModBlock
     public static Wood woodCoal = new Wood("coal");
