@@ -24,6 +24,12 @@ public class Seeds {
     public static Item seedWheatLapis = new ItemSeeds(Crops.wheatLapis, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
     @ModItem
     public static Item seedWheatRedstone = new ItemSeeds(Crops.wheatRedstone, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
+    @ModItem
+    public static Item seedWheatQuartz = new ItemSeeds(Crops.wheatQuartz, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
+    @ModItem
+    public static Item seedWheatObsidian = new ItemSeeds(Crops.wheatObsidian, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
+    @ModItem
+    public static Item seedWheatGlowstone = new ItemSeeds(Crops.wheatGlowstone, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
 
     @ModItem
     public static Item seedPumpkinCoal = new ItemSeeds(Crops.pumpkinCoalStem, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
@@ -39,6 +45,12 @@ public class Seeds {
     public static Item seedPumpkinLapis = new ItemSeeds(Crops.pumpkinLapisStem, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
     @ModItem
     public static Item seedPumpkinRedstone = new ItemSeeds(Crops.pumpkinRedstoneStem, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
+    @ModItem
+    public static Item seedPumpkinQuartz = new ItemSeeds(Crops.pumpkinQuartzStem, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
+    @ModItem
+    public static Item seedPumpkinObsidian = new ItemSeeds(Crops.pumpkinObsidianStem, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
+    @ModItem
+    public static Item seedPumpkinGlowstone = new ItemSeeds(Crops.pumpkinGlowstoneStem, Blocks.FARMLAND).setCreativeTab(OreTabs.TAB);
 
     @ModBlock
     @ModBlock.StateMapperCustom("com.ore.oreplant.render.SaplingMap")
