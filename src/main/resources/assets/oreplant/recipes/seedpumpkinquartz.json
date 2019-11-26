@@ -8,17 +8,18 @@
     ],
     "key":{
         "A":{
-            "item":"minecraft:iron_ingot"
+            "item":"minecraft:quartz"
         },
         "B":{
             "item":"minecraft:pumpkin_seeds"
         },
         "C":{
-            "item":"minecraft:iron_block"
+            "item":"minecraft:quartz_block",
+            "data": 0
         }
     },
     "result":{
-        "item":"oreplant:seedpumpkiniron",
+        "item":"oreplant:seedpumpkinquartz",
         "count":4
     }
 }

@@ -8,17 +8,17 @@
     ],
     "key":{
         "A":{
-            "item":"minecraft:iron_ingot"
+            "item":"minecraft:glowstone_dust"
         },
         "B":{
             "item":"minecraft:pumpkin_seeds"
         },
         "C":{
-            "item":"minecraft:iron_block"
+            "item":"minecraft:glowstone"
         }
     },
     "result":{
-        "item":"oreplant:seedpumpkiniron",
+        "item":"oreplant:seedpumpkinglowstone",
         "count":4
     }
 }
