@@ -13,10 +13,10 @@ import java.util.Random;
  * 用于生成树
  * @author luqin2007
  */
-public class RubberGenerator extends WorldGenTrees {
+public class TreeGrowGenerator extends WorldGenTrees {
 
-    public RubberGenerator(boolean notify, BlockLog wood, BlockLeaves leaf) {
-        super(notify, 4, wood.getDefaultState(), leaf.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.TRUE).withProperty(BlockLeaves.DECAYABLE, Boolean.TRUE), false);
+    public TreeGrowGenerator(BlockLog wood, BlockLeaves leaf) {
+        super(true, 4, wood.getDefaultState(), leaf.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.TRUE).withProperty(BlockLeaves.DECAYABLE, Boolean.TRUE), false);
     }
 
     @Override

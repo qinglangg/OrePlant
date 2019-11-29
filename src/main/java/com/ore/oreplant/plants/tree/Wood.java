@@ -1,5 +1,6 @@
 package com.ore.oreplant.plants.tree;
 
+import com.elementtimes.elementcore.api.annotation.ModBlock;
 import com.ore.oreplant.OreTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
@@ -7,7 +8,6 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
@@ -80,4 +80,26 @@ public class Wood extends BlockLog {
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, LOG_AXIS);
     }
+
+    @ModBlock
+    public static Wood woodCoal = new Wood(Blocks.COAL_BLOCK);
+    @ModBlock
+    public static Wood woodDiamond = new Wood(Blocks.DIAMOND_BLOCK);
+    @ModBlock
+    public static Wood woodEmerald = new Wood(Blocks.EMERALD_BLOCK);
+    @ModBlock
+    public static Wood woodGold = new Wood(Blocks.GOLD_BLOCK);
+    @ModBlock
+    public static Wood woodIron = new Wood(Blocks.IRON_BLOCK);
+    @ModBlock
+    public static Wood woodLapis = new Wood(Blocks.LAPIS_BLOCK);
+    @ModBlock
+    public static Wood woodRedstone = new Wood(Blocks.REDSTONE_BLOCK);
+    @ModBlock
+    public static Wood woodQuartz = new Wood(Blocks.QUARTZ_BLOCK);
+    @ModBlock
+    public static Wood woodObsidian = new Wood(Blocks.OBSIDIAN);
+    @ModBlock
+    public static Wood woodGlowstone = new Wood(Blocks.GLOWSTONE);
+
 }

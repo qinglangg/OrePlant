@@ -1,7 +1,9 @@
 package com.ore.oreplant.plants.tree;
 
 import com.ore.oreplant.OreTabs;
-import net.minecraft.block.Block;
+import com.ore.oreplant.config.OPConfiguration;
+import com.ore.oreplant.generator.TreeGenerators;
+import com.ore.oreplant.interfaces.IDecorator;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.BlockStateContainer;
@@ -10,21 +12,23 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraftforge.event.terraingen.TerrainGen;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
 import java.util.function.Supplier;
 
-public class Sapling extends BlockSapling {
+public class Sapling extends BlockSapling implements IDecorator {
 
-    private Supplier<WorldGenAbstractTree> generator;
+    private Supplier<TreeGenerators> generatorSupplier;
+    private TreeGenerators generator = null;
 
-    public Sapling(Supplier<WorldGenAbstractTree> generator) {
+    public Sapling(Supplier<TreeGenerators> generatorSupplier) {
         super();
-        this.generator = generator;
+        this.generatorSupplier = generatorSupplier;
         setCreativeTab(OreTabs.TAB);
     }
 
@@ -59,6 +63,13 @@ public class Sapling extends BlockSapling {
         return 0;
     }
 
+    public TreeGenerators getGenerators() {
+        if (generator == null) {
+            generator = generatorSupplier.get();
+        }
+        return generator;
+    }
+
     @Override
     public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)
     {
@@ -68,9 +79,19 @@ public class Sapling extends BlockSapling {
     public void generateTree(@Nonnull World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, @Nonnull Random rand) {
         if (net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) {
             worldIn.setBlockToAir(pos);
-            if (!generator.get().generate(worldIn, rand, pos) && worldIn.isAirBlock(pos)) {
+            if (!getGenerators().grower.generate(worldIn, rand, pos) && worldIn.isAirBlock(pos)) {
                 worldIn.setBlockState(pos, state, 4);
             }
         }
+    }
+
+    @Override
+    public void decorate(World world, Random rand, BlockPos pos) {
+        getGenerators().decorator.generate(world, rand, pos);
+    }
+
+    @Override
+    public boolean canDecorator(World world, Random rand, BlockPos pos, ChunkPos chunkPos) {
+        return OPConfiguration.tree.generate && TerrainGen.saplingGrowTree(world, rand, pos);
     }
 }

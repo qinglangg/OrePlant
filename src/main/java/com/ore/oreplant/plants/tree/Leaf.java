@@ -2,7 +2,7 @@ package com.ore.oreplant.plants.tree;
 
 import com.elementtimes.elementcore.api.common.ECUtils;
 import com.ore.oreplant.OreTabs;
-import com.ore.oreplant.render.IColorProvider;
+import com.ore.oreplant.interfaces.IColorProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
