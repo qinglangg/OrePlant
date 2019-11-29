@@ -1,5 +1,6 @@
 package com.ore.oreplant.render;
 
+import com.ore.oreplant.interfaces.IColorProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -14,7 +15,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
+/**
+ * 对于实现 IColorProvider 接口的物品和方块的染色
+ * @author luqin2007
+ */
 @SideOnly(Side.CLIENT)
+@SuppressWarnings("unused")
 public class PlantColorRender implements IItemColor, IBlockColor {
 
     @Override

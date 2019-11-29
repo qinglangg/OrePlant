@@ -7,14 +7,21 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+/**
+ * @author luqin2007
+ */
 @Mod.EventBusSubscriber
 @SideOnly(Side.CLIENT)
-public class OPConfigEvent {
+public class ConfigEvent {
 
+    /**
+     * 当配置文件改变时触发
+     * @param event 事件
+     */
     @SubscribeEvent
     public static void onConfigurationChanged(ConfigChangedEvent.PostConfigChangedEvent event) {
-        if (OPConfigNetwork.SI.contains(event.getModID())) {
-            OrePlant.CONTAINER.elements.channel.sendToServer(new OPConfigNetwork(event.getModID()));
+        if (ConfigNetwork.SI.contains(event.getModID())) {
+            OrePlant.CONTAINER.elements.channel.sendToServer(new ConfigNetwork(event.getModID()));
         }
     }
 }

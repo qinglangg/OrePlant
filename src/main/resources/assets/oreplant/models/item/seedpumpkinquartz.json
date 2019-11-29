@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "oreplant:items/seed/pumpkin/redstone"
+    "layer0": "oreplant:items/seed/pumpkin/quartz"
   }
 }

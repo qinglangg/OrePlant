@@ -16,8 +16,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-@ModNetwork(handlerClass = "com.ore.oreplant.config.OPConfigNetwork", side = Side.SERVER)
-public class OPConfigNetwork implements IMessage, IMessageHandler<OPConfigNetwork, IMessage> {
+/**
+ * 用于同步客户端与服务端的配置文件
+ * @author luqin2007
+ */
+@ModNetwork(handlerClass = "com.ore.oreplant.config.ConfigNetwork", side = Side.SERVER)
+public class ConfigNetwork implements IMessage, IMessageHandler<ConfigNetwork, IMessage> {
 
     private static final Consumer<Object> EMPTY = (o) -> {};
 
@@ -26,6 +30,13 @@ public class OPConfigNetwork implements IMessage, IMessageHandler<OPConfigNetwor
     private static Map<String, Consumer<? super MessageContext>> R = new HashMap<>();
     static List<String> SI = new ArrayList<>();
 
+    /**
+     * 注册配置文件同步支持
+     * @param id 配置文件所在 mod id
+     * @param fromBytes fromBytes 方法中调用，用于将配置写入服务端
+     * @param toBytes toBytes 方法中调用，用于从客户端读取配置
+     * @param reload 服务端保存配置文件后调用，用于更新数据
+     */
     public static void register(String id, Consumer<? super ByteBuf> fromBytes, Consumer<? super ByteBuf> toBytes, Consumer<? super MessageContext> reload) {
         SI.add(id);
         FB.put(id, fromBytes);
@@ -35,11 +46,11 @@ public class OPConfigNetwork implements IMessage, IMessageHandler<OPConfigNetwor
 
     private String id;
 
-    public OPConfigNetwork(String id) {
+    public ConfigNetwork(String id) {
         this.id = id;
     }
 
-    public OPConfigNetwork() {}
+    public ConfigNetwork() {}
 
     @Override
     public void fromBytes(ByteBuf buf) {
@@ -54,7 +65,7 @@ public class OPConfigNetwork implements IMessage, IMessageHandler<OPConfigNetwor
     }
 
     @Override
-    public IMessage onMessage(OPConfigNetwork message, MessageContext ctx) {
+    public IMessage onMessage(ConfigNetwork message, MessageContext ctx) {
         ConfigManager.sync(id, Config.Type.INSTANCE);
         R.getOrDefault(id, EMPTY).accept(ctx);
         return null;

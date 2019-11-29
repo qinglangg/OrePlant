@@ -74,18 +74,10 @@ tile.oreplant.woodredstone.name=Redstone Log
 tile.oreplant.woodquartz.name=Quartz Log
 tile.oreplant.woodobsidian.name=Obsidian Log
 tile.oreplant.woodglowstone.name=Glowstone Log
-# reed
-tile.oreplant.reedcoal.name=Coal Reed
-tile.oreplant.reeddiamond.name=Diamond Reed
-tile.oreplant.reedemerald.name=Emerald Reed
-tile.oreplant.reedgold.name=Gold Reed
-tile.oreplant.reediron.name=Iron Reed
-tile.oreplant.reedlapis.name=Lapis Reed
-tile.oreplant.reedredstone.name=Redstone Reed
-tile.oreplant.reedglowstone.name=Glowstone Reed
-tile.oreplant.reedquartz.name=Quartz Reed
-tile.oreplant.reedobsidian.name=Obsidian Reed
 # ore
 tile.oreplant.gold_ore.name=gold_ore
 tile.oreplant.diamond_ore.name=diamond_ore
 tile.oreplant.iron_ore.name=iron_ore
+# configuration
+config.oreplant.title=Ore Plant
+config.oreplant.subtitle=Setting...

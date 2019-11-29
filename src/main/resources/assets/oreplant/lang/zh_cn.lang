@@ -74,18 +74,10 @@ tile.oreplant.woodredstone.name=红石 原木
 tile.oreplant.woodquartz.name=石英 原木
 tile.oreplant.woodobsidian.name=黑曜石 原木
 tile.oreplant.woodglowstone.name=萤石 原木
-# reed
-tile.oreplant.reedcoal.name=煤 甘蔗
-tile.oreplant.reeddiamond.name=钻石 甘蔗
-tile.oreplant.reedemerald.name=绿宝石 甘蔗
-tile.oreplant.reedgold.name=金 甘蔗
-tile.oreplant.reediron.name=铁 甘蔗
-tile.oreplant.reedlapis.name=青金石 甘蔗
-tile.oreplant.reedredstone.name=红石 甘蔗
-tile.oreplant.reedglowstone.name=萤石 甘蔗
-tile.oreplant.reedquartz.name=石英 甘蔗
-tile.oreplant.reedobsidian.name=黑曜石 甘蔗
 # ore
 tile.oreplant.gold_ore.name=劣质金矿石
 tile.oreplant.diamond_ore.name=劣质钻石矿石
 tile.oreplant.iron_ore.name=劣质铁矿石
+# configuration
+config.oreplant.title=矿物种植
+config.oreplant.subtitle=设置

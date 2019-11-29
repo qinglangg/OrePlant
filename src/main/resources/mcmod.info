@@ -2,8 +2,8 @@
 {
   "modid": "oreplant",
   "name": "Ore Plant",
-  "version": "version",
-  "mcversion": "mcversion",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
   "url": "https://www.mcmod.cn/class/1398.html",
   "updateUrl": "",
   "authorList": [

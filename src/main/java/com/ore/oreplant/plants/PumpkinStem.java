@@ -1,7 +1,6 @@
 package com.ore.oreplant.plants;
 
-import com.ore.oreplant.OreTabs;
-import com.ore.oreplant.render.IColorProvider;
+import com.ore.oreplant.interfaces.IColorProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStem;
 import net.minecraft.block.state.IBlockState;
@@ -13,25 +12,19 @@ import net.minecraft.world.IBlockAccess;
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
+/**
+ * 矿物南瓜藤
+ * @author luqin2007
+ */
 public class PumpkinStem extends BlockStem implements IColorProvider {
 
-    private final int color;
     private final Block colorBlock;
     private final Supplier<Item> seed;
 
-    private PumpkinStem(int color, Block colorBlock, Block result, Supplier<Item> seed) {
-        super(result);
-        this.color = color;
-        this.seed = seed;
-        this.colorBlock = colorBlock;
-    }
-
-    public PumpkinStem(int color, Block result, Supplier<Item> seed) {
-        this(color, null, result, seed);
-    }
-
     public PumpkinStem(Block color, Block result, Supplier<Item> seed) {
-        this(0, color, result, seed);
+        super(result);
+        this.seed = seed;
+        this.colorBlock = color;
     }
 
     @Nullable
@@ -42,9 +35,6 @@ public class PumpkinStem extends BlockStem implements IColorProvider {
 
     @Override
     public int getColor(IBlockAccess world, IBlockState state, BlockPos pos, ItemStack stack) {
-        if (colorBlock != null) {
-            return colorBlock.getDefaultState().getMapColor(world, pos).colorValue;
-        }
-        return color;
+        return colorBlock.getDefaultState().getMapColor(world, pos).colorValue;
     }
 }

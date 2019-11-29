@@ -15,8 +15,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.ArrayList;
 import java.util.Set;
 
+/**
+ * 配置 GUI
+ * @author luqin2007
+ */
 @SideOnly(Side.CLIENT)
-public class OPConfigGui implements IModGuiFactory {
+public class ConfigGui implements IModGuiFactory {
     @Override
     public void initialize(Minecraft minecraftInstance) {
 
@@ -30,7 +34,7 @@ public class OPConfigGui implements IModGuiFactory {
     @Override
     public GuiScreen createConfigGui(GuiScreen parentScreen) {
         ArrayList<IConfigElement> configs = new ArrayList<>();
-        configs.add(ConfigElement.from(OPConfiguration.class));
+        configs.add(ConfigElement.from(Configuration.class));
         tryAddConfigPage("orereed", "com.ore.orereed.Config", configs);
         tryAddConfigPage("oretree", "com.ore.oretree.Config", configs);
         tryAddConfigPage("orevillage", "com.ore.orevillage.Config", configs);

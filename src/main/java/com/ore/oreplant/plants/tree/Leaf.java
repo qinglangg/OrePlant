@@ -15,17 +15,21 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
+import javax.annotation.Nonnull;
 import java.util.Random;
 import java.util.function.Supplier;
 
+/**
+ * 树叶
+ * @author luqin2007
+ */
 public class Leaf extends BlockLeaves implements IColorProvider {
 
     private final Supplier<BlockSapling> sapling;
 
-    private final int color;
     private final IBlockState colorState;
 
-    private Leaf(int color, IBlockState colorState, Supplier<BlockSapling> sapling) {
+    public Leaf(Block color, Supplier<BlockSapling> sapling) {
         setCreativeTab(OreTabs.TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, false).withProperty(DECAYABLE, true));
         this.sapling = sapling;
@@ -33,23 +37,12 @@ public class Leaf extends BlockLeaves implements IColorProvider {
             net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getMinecraft();
             setGraphicsLevel(mc.gameSettings.fancyGraphics);
         }
-        this.color = color;
-        this.colorState = colorState;
-    }
-
-    public Leaf(int color, Supplier<BlockSapling> sapling) {
-        this(color, null, sapling);
-    }
-
-    public Leaf(Block color, Supplier<BlockSapling> sapling) {
-        this(0, color.getDefaultState(), sapling);
-    }
-
-    public Leaf(IBlockState color, Supplier<BlockSapling> sapling) {
-        this(0, color, sapling);
+        this.colorState = color.getDefaultState();
     }
 
     @Override
+    @Nonnull
+    @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(DECAYABLE, (meta & 4) == 0).withProperty(CHECK_DECAY, (meta & 8) > 0);
     }
@@ -67,30 +60,31 @@ public class Leaf extends BlockLeaves implements IColorProvider {
     }
 
     @Override
+    @SuppressWarnings("NullableProblems")
     public BlockPlanks.EnumType getWoodType(int meta) {
         return null;
     }
 
     @Override
+    @Nonnull
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, CHECK_DECAY, DECAYABLE);
     }
 
     @Override
+    @Nonnull
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return  Item.getItemFromBlock(sapling.get());
+        return Item.getItemFromBlock(sapling.get());
     }
 
     @Override
-    public NonNullList<ItemStack> onSheared(ItemStack item, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune) {
+    @Nonnull
+    public NonNullList<ItemStack> onSheared(@Nonnull ItemStack item, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune) {
         return NonNullList.withSize(1, new ItemStack(this));
     }
 
     @Override
     public int getColor(IBlockAccess world, IBlockState state, BlockPos pos, ItemStack stack) {
-        if (colorState != null) {
-            return colorState.getMapColor(world, pos).colorValue;
-        }
-        return color;
+        return colorState.getMapColor(world, pos).colorValue;
     }
 }

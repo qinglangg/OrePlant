@@ -1,22 +1,23 @@
 package com.ore.oreplant.event;
 
-import com.ore.oreplant.OrePlant;
-import com.ore.oreplant.config.OPConfiguration;
-import com.ore.oreplant.plants.Flower;
-import com.ore.oreplant.plants.tree.Sapling;
+import com.elementtimes.elementcore.api.common.ECModContainer;
+import com.ore.oreplant.interfaces.IDecorator;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
-import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Random;
 
+/**
+ * 世界生成相关事件
+ * @author luqin2007
+ */
 @Mod.EventBusSubscriber
-public class GeneratorEventHandler {
+public class GeneratorHandler {
 
     @SubscribeEvent
     public static void onTreeGenerator(DecorateBiomeEvent.Post event) {
@@ -25,16 +26,10 @@ public class GeneratorEventHandler {
             Random rand = event.getRand();
             ChunkPos chunkPos = event.getChunkPos();
             BlockPos pos = chunkPos.getBlock(0, 0, 0);
-            for (Block block : OrePlant.CONTAINER.elements.blocks.values()) {
-                if (block instanceof Sapling && OPConfiguration.tree) {
-                    Sapling sapling = (Sapling) block;
-                    if (TerrainGen.saplingGrowTree(world, rand, pos)) {
-                        sapling.getGenerators().decorator.generate(world, rand, pos);
-                    }
-                } else if (block instanceof Flower && OPConfiguration.flower) {
-                    Flower flower = (Flower) block;
-                    if (TerrainGen.decorate(world, rand, chunkPos, DecorateBiomeEvent.Decorate.EventType.FLOWERS)) {
-                        flower.getGenerator().generate(world, rand, pos);
+            for (ECModContainer container : ECModContainer.MODS.values()) {
+                for (Block block : container.elements.blocks.values()) {
+                    if (block instanceof IDecorator && ((IDecorator) block).canDecorator(world, rand, pos, chunkPos)) {
+                        ((IDecorator) block).decorate(world, rand, pos);
                     }
                 }
             }

@@ -3,12 +3,10 @@ package com.ore.oreplant;
 import com.elementtimes.elementcore.api.annotation.ModBlock;
 import com.ore.oreplant.annotation.SkipGroup;
 import com.ore.oreplant.plants.PumpkinStem;
-import com.ore.oreplant.plants.Reeds;
 import com.ore.oreplant.plants.Wheat;
 import com.ore.oreplant.plants.tree.Leaf;
 import com.ore.oreplant.plants.tree.Wood;
 import net.minecraft.block.BlockCrops;
-import net.minecraft.block.BlockReed;
 import net.minecraft.block.BlockStem;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -16,6 +14,11 @@ import net.minecraft.item.ItemStack;
 
 import java.util.Arrays;
 
+/**
+ * 所有植物
+ * @author luqin2007
+ */
+@SuppressWarnings("WeakerAccess")
 public class Crops {
 
     @ModBlock
@@ -48,47 +51,6 @@ public class Crops {
     @ModBlock
     @SkipGroup
     public static BlockCrops wheatGlowstone = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatGlowstone), new ItemStack(Items.GLOWSTONE_DUST)));
-
-    @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedCoal = new Reeds(Blocks.COAL_ORE);
-    @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedDiamond = new Reeds(Blocks.DIAMOND_BLOCK);
-    @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedEmerald = new Reeds(Blocks.EMERALD_BLOCK);
-    @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedGold = new Reeds(Blocks.GOLD_BLOCK);
-    @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedIron = new Reeds(Blocks.IRON_BLOCK);
-    @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedLapis = new Reeds(Blocks.LAPIS_BLOCK);
-    @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedRedstone = new Reeds(Blocks.REDSTONE_BLOCK);
-    @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedQuartz = new Reeds(Blocks.QUARTZ_BLOCK);
-    @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedObsidian = new Reeds(Blocks.OBSIDIAN);
-    @ModBlock
-    @ModBlock.StateMapperCustom("com.ore.oreplant.render.ReedMap")
-    @ModBlock.BlockColor(value = "com.ore.oreplant.render.PlantColorRender", itemColor = "com.ore.oreplant.render.PlantColorRender")
-    public static BlockReed reedGlowstone = new Reeds(Blocks.GLOWSTONE);
 
     @ModBlock
     @ModBlock.StateMapperCustom("com.ore.oreplant.render.PumpkinStemMap")

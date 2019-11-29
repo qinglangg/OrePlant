@@ -1,7 +1,6 @@
 package com.ore.oreplant.plants.tree;
 
 import com.ore.oreplant.OreTabs;
-import com.ore.oreplant.config.OPConfiguration;
 import com.ore.oreplant.generator.TreeGenerators;
 import com.ore.oreplant.interfaces.IDecorator;
 import net.minecraft.block.BlockPlanks;
@@ -21,6 +20,10 @@ import javax.annotation.Nonnull;
 import java.util.Random;
 import java.util.function.Supplier;
 
+/**
+ * 树苗
+ * @author luqin2007
+ */
 public class Sapling extends BlockSapling implements IDecorator {
 
     private Supplier<TreeGenerators> generatorSupplier;
@@ -33,11 +36,13 @@ public class Sapling extends BlockSapling implements IDecorator {
     }
 
     @Override
+    @Nonnull
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, TYPE, STAGE);
     }
 
     @Override
+    @Nonnull
     public IBlockState getStateFromMeta(int meta) {
         getDefaultState().withProperty(STAGE, (meta & 1) == 1 ? 1 : 0);
         return super.getStateFromMeta(meta);
@@ -49,12 +54,14 @@ public class Sapling extends BlockSapling implements IDecorator {
     }
 
     @Override
+    @Nonnull
     public String getLocalizedName() {
+        //noinspection deprecation
         return I18n.translateToLocal(this.getUnlocalizedName() + ".name");
     }
 
     @Override
-    public boolean isTypeAt(World worldIn, BlockPos pos, BlockPlanks.EnumType type) {
+    public boolean isTypeAt(World worldIn, @Nonnull BlockPos pos, BlockPlanks.EnumType type) {
         return false;
     }
 
@@ -79,7 +86,7 @@ public class Sapling extends BlockSapling implements IDecorator {
     public void generateTree(@Nonnull World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, @Nonnull Random rand) {
         if (net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) {
             worldIn.setBlockToAir(pos);
-            if (!getGenerators().grower.generate(worldIn, rand, pos) && worldIn.isAirBlock(pos)) {
+            if (!getGenerators().getGrower().generate(worldIn, rand, pos) && worldIn.isAirBlock(pos)) {
                 worldIn.setBlockState(pos, state, 4);
             }
         }
@@ -87,11 +94,11 @@ public class Sapling extends BlockSapling implements IDecorator {
 
     @Override
     public void decorate(World world, Random rand, BlockPos pos) {
-        getGenerators().decorator.generate(world, rand, pos);
+        getGenerators().getDecorator().generate(world, rand, pos);
     }
 
     @Override
     public boolean canDecorator(World world, Random rand, BlockPos pos, ChunkPos chunkPos) {
-        return OPConfiguration.tree.generate && TerrainGen.saplingGrowTree(world, rand, pos);
+        return getGenerators().getDecorator() != null && TerrainGen.saplingGrowTree(world, rand, pos);
     }
 }

@@ -10,15 +10,22 @@ import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import java.util.Collections;
 
+/**
+ * 南瓜藤材质重定向
+ * @author luqin2007
+ */
 @SideOnly(Side.CLIENT)
+@SuppressWarnings("unused")
 public class PumpkinStemMap extends StateMapperBase {
 
     public static IBlockState STEM_STATE = Blocks.PUMPKIN_STEM.getDefaultState();
 
     @Override
-    protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+    @Nonnull
+    protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {
         EnumFacing facing = state.getValue(PumpkinStem.FACING);
         if (facing == EnumFacing.UP) {
             return new ModelResourceLocation(Block.REGISTRY.getNameForObject(STEM_STATE.getBlock()), this.getPropertyString(state.getProperties()));
