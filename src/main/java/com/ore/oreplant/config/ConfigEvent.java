@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * @author luqin2007
  */
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(value = Side.CLIENT)
 @SideOnly(Side.CLIENT)
 public class ConfigEvent {
 

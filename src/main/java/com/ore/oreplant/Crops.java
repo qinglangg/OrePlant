@@ -23,34 +23,34 @@ public class Crops {
 
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatCoal = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatCoal), new ItemStack(Items.COAL)));
+    public static BlockCrops wheatCoal = new Wheat(() -> new ItemStack(Seeds.seedWheatCoal), () -> new ItemStack(Items.COAL));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatDiamond = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatDiamond), new ItemStack(Items.DIAMOND)));
+    public static BlockCrops wheatDiamond = new Wheat(() -> new ItemStack(Seeds.seedWheatDiamond), () -> new ItemStack(Items.DIAMOND));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatEmerald = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatEmerald), new ItemStack(Items.EMERALD)));
+    public static BlockCrops wheatEmerald = new Wheat(() -> new ItemStack(Seeds.seedWheatEmerald), () -> new ItemStack(Items.EMERALD));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatGold = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatGold), new ItemStack(Items.GOLD_INGOT)));
+    public static BlockCrops wheatGold = new Wheat(() -> new ItemStack(Seeds.seedWheatGold), () -> new ItemStack(Items.GOLD_INGOT));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatIron = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatIron), new ItemStack(Items.IRON_INGOT)));
+    public static BlockCrops wheatIron = new Wheat(() -> new ItemStack(Seeds.seedWheatIron), () -> new ItemStack(Items.IRON_INGOT));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatLapis = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatLapis), new ItemStack(Items.DYE, 1, 0)));
+    public static BlockCrops wheatLapis = new Wheat(() -> new ItemStack(Seeds.seedWheatLapis), () -> new ItemStack(Items.DYE, 1, 4));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatRedstone = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatRedstone), new ItemStack(Items.REDSTONE)));
+    public static BlockCrops wheatRedstone = new Wheat(() -> new ItemStack(Seeds.seedWheatRedstone), () -> new ItemStack(Items.REDSTONE));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatQuartz = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatQuartz), new ItemStack(Items.QUARTZ)));
+    public static BlockCrops wheatQuartz = new Wheat(() -> new ItemStack(Seeds.seedWheatQuartz), () -> new ItemStack(Items.QUARTZ));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatObsidian = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatObsidian), new ItemStack(Blocks.OBSIDIAN)));
+    public static BlockCrops wheatObsidian = new Wheat(() -> new ItemStack(Seeds.seedWheatObsidian), () -> new ItemStack(Blocks.OBSIDIAN));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatGlowstone = new Wheat(() -> Arrays.asList(new ItemStack(Seeds.seedWheatGlowstone), new ItemStack(Items.GLOWSTONE_DUST)));
+    public static BlockCrops wheatGlowstone = new Wheat(() -> new ItemStack(Seeds.seedWheatGlowstone), () -> new ItemStack(Items.GLOWSTONE_DUST));
 
     @ModBlock
     @ModBlock.StateMapperCustom("com.ore.oreplant.render.PumpkinStemMap")
