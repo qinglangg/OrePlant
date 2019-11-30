@@ -31,7 +31,7 @@ public class Crops {
     public static BlockCrops wheatIron = new Wheat("iron", () -> new ItemStack(Items.iron_ingot), () -> new ItemStack(Seeds.seedWheatIron));
     @ModBlock
     @SkipGroup
-    public static BlockCrops wheatLapis = new Wheat("lapis", () -> new ItemStack(Items.dye, 1, 0), () -> new ItemStack(Seeds.seedWheatLapis));
+    public static BlockCrops wheatLapis = new Wheat("lapis", () -> new ItemStack(Items.dye, 1, 4), () -> new ItemStack(Seeds.seedWheatLapis));
     @ModBlock
     @SkipGroup
     public static BlockCrops wheatRedstone = new Wheat("redstone", () -> new ItemStack(Items.redstone), () -> new ItemStack(Seeds.seedWheatRedstone));

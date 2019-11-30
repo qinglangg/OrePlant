@@ -9,11 +9,11 @@
     <wildcardResourcePatterns>
       <entry name="!?*.class"/>
       <entry name="!?*.scala"/>
-      <entry name="!?*.groovy"/>
       <entry name="!?*.java"/>
+      <entry name="!?*.groovy"/>
     </wildcardResourcePatterns>
     <annotationProcessing enabled="false" useClasspath="true"/>
-    <bytecodeTargetLevel target="1.8"/>
+    <bytecodeTargetLevel target="1.6"/>
   </component>
   <component name="CopyrightManager" default="">
     <module2copyright/>
@@ -48,10 +48,10 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/OrePlant.iml" filepath="$PROJECT_DIR$/OrePlant.iml"/>
+      <module filepath="$PROJECT_DIR$/OrePlant.iml" fileurl="file://$PROJECT_DIR$/OrePlant.iml"/>
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-type="JavaSDK" assert-jdk-15="true" project-jdk-name="1.8">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-type="JavaSDK" assert-jdk-15="true" project-jdk-name="1.8">
     <output url="file://$PROJECT_DIR$/out"/>
   </component>
   <component name="SvnBranchConfigurationManager">
