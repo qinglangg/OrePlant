@@ -85,3 +85,10 @@ tile.oreplant.reedredstone.name=Redstone Reed
 tile.oreplant.reedquartz.name=Quartz Reed
 tile.oreplant.reedobsidian.name=Obsidian Reed
 tile.oreplant.reedglowstone.name=Glowstone Reed
+# ores
+tile.oreplant.gold_ore2.name=gold_ore
+tile.oreplant.diamond_ore2.name=diamond_ore
+tile.oreplant.iron_ore2.name=iron_ore
+tile.oreplant.gold_ore.name=gold_ore
+tile.oreplant.diamond_ore.name=diamond_ore
+tile.oreplant.iron_ore.name=iron_ore

@@ -85,3 +85,10 @@ tile.oreplant.reedredstone.name=红石 甘蔗
 tile.oreplant.reedquartz.name=石英 甘蔗
 tile.oreplant.reedobsidian.name=黑曜石 甘蔗
 tile.oreplant.reedglowstone.name=萤石 甘蔗
+# ores
+tile.oreplant.gold_ore2.name=精致金矿石
+tile.oreplant.diamond_ore2.name=精致钻石矿石
+tile.oreplant.iron_ore2.name=精致铁矿石
+tile.oreplant.gold_ore.name=劣质金矿石
+tile.oreplant.diamond_ore.name=劣质钻石矿石
+tile.oreplant.iron_ore.name=劣质铁矿石
