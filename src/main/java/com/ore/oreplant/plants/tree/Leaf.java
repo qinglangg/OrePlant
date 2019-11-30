@@ -3,14 +3,11 @@ package com.ore.oreplant.plants.tree;
 import com.elementtimes.elementcore.api.common.ECUtils;
 import com.google.common.collect.Lists;
 import com.ore.oreplant.OreTabs;
-import cpw.mods.fml.common.registry.GameData;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,26 +24,16 @@ public class Leaf extends BlockLeaves {
     private final Supplier<BlockSapling> sapling;
 
     private IIcon icon;
-    private final int color;
     private final Block colorBlock;
 
-    private Leaf(int color, Block colorBlock, Supplier<BlockSapling> sapling) {
+    public Leaf(Block color, Supplier<BlockSapling> sapling) {
         setCreativeTab(OreTabs.TAB);
         this.sapling = sapling;
         if (ECUtils.common.isClient()) {
             net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getMinecraft();
             setGraphicsLevel(mc.gameSettings.fancyGraphics);
         }
-        this.color = color;
-        this.colorBlock = colorBlock;
-    }
-
-    public Leaf(int color, Supplier<BlockSapling> sapling) {
-        this(color, null, sapling);
-    }
-
-    public Leaf(Block color, Supplier<BlockSapling> sapling) {
-        this(0, color, sapling);
+        this.colorBlock = color;
     }
 
     @Override
@@ -56,11 +43,14 @@ public class Leaf extends BlockLeaves {
 
         if (fortune > 0) {
             chance -= 2 << fortune;
-            if (chance < 10) chance = 10;
+            if (chance < 10) {
+                chance = 10;
+            }
         }
 
-        if (world.rand.nextInt(chance) == 0)
+        if (world.rand.nextInt(chance) == 0) {
             ret.add(new ItemStack(sapling.get()));
+        }
 
         this.captureDrops(true);
         ret.addAll(this.captureDrops(false));
@@ -90,16 +80,13 @@ public class Leaf extends BlockLeaves {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister register) {
+    public void registerBlockIcons(net.minecraft.client.renderer.texture.IIconRegister register) {
         icon = register.registerIcon("oreplant:leaves");
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess p_149720_1_, int p_149720_2_, int p_149720_3_, int p_149720_4_) {
-        if (colorBlock != null) {
-            return colorBlock.getMapColor(0).colorValue;
-        }
-        return color;
+        return colorBlock.getMapColor(0).colorValue;
     }
 }

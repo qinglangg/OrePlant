@@ -20,3 +20,10 @@ build
 # other
 eclipse
 run
+/.gradle/
+*.class
+/eclipse/
+/out/
+/.idea/
+/run/logs/
+/run/crash-reports/
