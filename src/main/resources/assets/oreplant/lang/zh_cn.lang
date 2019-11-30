@@ -75,6 +75,9 @@ tile.oreplant.woodquartz.name=石英 原木
 tile.oreplant.woodobsidian.name=黑曜石 原木
 tile.oreplant.woodglowstone.name=萤石 原木
 # ore
+tile.oreplant.gold_ore2.name=精致金矿石
+tile.oreplant.diamond_ore2.name=精致钻石矿石
+tile.oreplant.iron_ore2.name=精致铁矿石
 tile.oreplant.gold_ore.name=劣质金矿石
 tile.oreplant.diamond_ore.name=劣质钻石矿石
 tile.oreplant.iron_ore.name=劣质铁矿石

@@ -19,7 +19,7 @@ public class Gold_ore extends Block
 		setCreativeTab(OreTabs.TAB);
         setHardness(8.0F); 
         setResistance(5.0F); 
-        setHarvestLevel("pickaxe", 2);
+        setHarvestLevel("pickaxe", 1);
      
 	}
 	@Override

@@ -11,19 +11,20 @@ import com.ore.oreplant.OreTabs;
 /**
  * @author 卿岚
  */
-public class Iron_ore extends Block
+public class Gold_ore2 extends Block
 {
-	public Iron_ore()
+	public Gold_ore2()
 	{
 		super(Material.ROCK);
 		setCreativeTab(OreTabs.TAB);
         setHardness(8.0F); 
         setResistance(5.0F); 
-        setHarvestLevel("pickaxe", 1); 
+        setHarvestLevel("pickaxe", 2);
+     
 	}
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
-		return Items.IRON_NUGGET;
+		return Items.GOLD_INGOT;
 	}
 
 	@Override
