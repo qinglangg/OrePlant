@@ -1,0 +1,21 @@
+{
+    "type":"minecraft:crafting_shaped",
+    "group": "oreplant:recipes",
+    "pattern":[
+        "ABA",
+        "BAB",
+        "ABA"
+    ],
+    "key":{
+        "A":{
+            "item":"minecraft:obsidian"
+        },
+        "B":{
+            "item":"minecraft:wheat_seeds"
+        }
+    },
+    "result":{
+        "item":"oreplant:seedwheatobsidian",
+        "count":1
+    }
+}

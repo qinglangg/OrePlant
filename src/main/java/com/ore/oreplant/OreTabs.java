@@ -13,7 +13,7 @@ public class OreTabs extends CreativeTabs {
     public OreTabs() {
         super("ore");
 //        collect(Crops.class);
-//        collect(Seeds.class);
+//        collect(Seed.class);
     }
 
     @Override

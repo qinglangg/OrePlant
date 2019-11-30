@@ -1,0 +1,22 @@
+{
+    "type":"minecraft:crafting_shaped",
+    "group": "oreplant:recipes",
+    "pattern":[
+        "ABA",
+        "BAB",
+        "ABA"
+    ],
+    "key":{
+        "A":{
+            "item":"minecraft:dye",
+            "data": 4
+        },
+        "B":{
+            "item":"minecraft:wheat_seeds"
+        }
+    },
+    "result":{
+        "item":"oreplant:seedwheatlapis",
+        "count":1
+    }
+}

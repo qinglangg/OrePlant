@@ -1,0 +1,24 @@
+{
+    "type":"minecraft:crafting_shaped",
+    "group": "oreplant:recipes",
+    "pattern":[
+        "ABA",
+        "BCB",
+        "ABA"
+    ],
+    "key":{
+        "A":{
+            "item":"minecraft:glowstone_dust"
+        },
+        "B":{
+            "item":"minecraft:pumpkin_seeds"
+        },
+        "C":{
+            "item":"minecraft:glowstone"
+        }
+    },
+    "result":{
+        "item":"oreplant:seedpumpkinglowstone",
+        "count":4
+    }
+}

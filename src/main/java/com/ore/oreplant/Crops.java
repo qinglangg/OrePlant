@@ -3,19 +3,14 @@ package com.ore.oreplant;
 import com.elementtimes.elementcore.api.annotation.ModBlock;
 import com.ore.oreplant.annotation.SkipGroup;
 import com.ore.oreplant.plants.PumpkinStem;
-import com.ore.oreplant.plants.Reeds;
 import com.ore.oreplant.plants.Wheat;
 import com.ore.oreplant.plants.tree.Leaf;
 import com.ore.oreplant.plants.tree.Wood;
 import net.minecraft.block.BlockCrops;
-import net.minecraft.block.BlockReed;
 import net.minecraft.block.BlockStem;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
-
-import java.util.Collections;
 
 public class Crops {
 
@@ -49,27 +44,6 @@ public class Crops {
     @ModBlock
     @SkipGroup
     public static BlockCrops wheatGlowstone = new Wheat("glowstone", () -> new ItemStack(Items.glowstone_dust), () -> new ItemStack(Seeds.seedWheatGlowstone));
-
-    @ModBlock
-    public static BlockReed reedCoal = new Reeds(Blocks.coal_block);
-    @ModBlock
-    public static BlockReed reedDiamond = new Reeds(Blocks.diamond_block);
-    @ModBlock
-    public static BlockReed reedEmerald = new Reeds(Blocks.emerald_block);
-    @ModBlock
-    public static BlockReed reedGold = new Reeds(Blocks.gold_block);
-    @ModBlock
-    public static BlockReed reedIron = new Reeds(Blocks.iron_block);
-    @ModBlock
-    public static BlockReed reedLapis = new Reeds(Blocks.lapis_block);
-    @ModBlock
-    public static BlockReed reedRedstone = new Reeds(Blocks.redstone_block);
-    @ModBlock
-    public static BlockReed reedQuartz = new Reeds(Blocks.quartz_block);
-    @ModBlock
-    public static BlockReed reedObsidian = new Reeds(Blocks.obsidian);
-    @ModBlock
-    public static BlockReed reedGlowstone = new Reeds(Blocks.glowstone);
 
     @ModBlock
     @SkipGroup

@@ -10,13 +10,6 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import java.lang.reflect.Field;
 
 public class CraftingRecipes {
-    public static IRecipe reedcoal = new ShapedOreRecipe(createItemStack("oreplant:reedcoal", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:coal", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0));
-    public static IRecipe reeddiamond = new ShapedOreRecipe(createItemStack("oreplant:reeddiamond", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:diamond", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0));
-    public static IRecipe reedemerald = new ShapedOreRecipe(createItemStack("oreplant:reedemerald", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:emerald", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0));
-    public static IRecipe reedgold = new ShapedOreRecipe(createItemStack("oreplant:reedgold", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:gold_ingot", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0));
-    public static IRecipe reediron = new ShapedOreRecipe(createItemStack("oreplant:reediron", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:iron_ingot", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0));
-    public static IRecipe reedlapis = new ShapedOreRecipe(createItemStack("oreplant:reedlapis", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:dye", 1, 4), 'B', createItemStack("minecraft:reeds", 1, 0));
-    public static IRecipe reedredstone = new ShapedOreRecipe(createItemStack("oreplant:reedredstone", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:redstone", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0));
     public static IRecipe saplingcoal = new ShapedOreRecipe(createItemStack("oreplant:saplingcoal", 1, 0), "ABA", "BCB", "ABA", 'A', createItemStack("minecraft:coal", 1, 0), 'B', "treeSapling", 'C', createItemStack("minecraft:coal_block", 1, 0));
     public static IRecipe saplingdiamond = new ShapedOreRecipe(createItemStack("oreplant:saplingdiamond", 1, 0), "ABA", "BCB", "ABA", 'A', createItemStack("minecraft:diamond", 1, 0), 'B', "treeSapling", 'C', createItemStack("minecraft:diamond_block", 1, 0));
     public static IRecipe saplingemerald = new ShapedOreRecipe(createItemStack("oreplant:saplingemerald", 1, 0), "ABA", "BCB", "ABA", 'A', createItemStack("minecraft:emerald", 1, 0), 'B', "treeSapling", 'C', createItemStack("minecraft:emerald_block", 1, 0));

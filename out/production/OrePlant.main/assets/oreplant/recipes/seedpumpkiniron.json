@@ -1,0 +1,24 @@
+{
+    "type":"minecraft:crafting_shaped",
+    "group": "oreplant:recipes",
+    "pattern":[
+        "ABA",
+        "BCB",
+        "ABA"
+    ],
+    "key":{
+        "A":{
+            "item":"minecraft:iron_ingot"
+        },
+        "B":{
+            "item":"minecraft:pumpkin_seeds"
+        },
+        "C":{
+            "item":"minecraft:iron_block"
+        }
+    },
+    "result":{
+        "item":"oreplant:seedpumpkiniron",
+        "count":4
+    }
+}

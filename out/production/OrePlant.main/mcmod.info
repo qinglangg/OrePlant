@@ -1,0 +1,20 @@
+[
+{
+  "modid": "oreplant",
+  "name": "Ore Plant",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://www.mcmod.cn/class/1398.html",
+  "updateUrl": "",
+  "authorList": [
+      "qinglan",
+      "luqin2007"
+    ],
+    "parent": "",
+    "screenshots": [],
+    "dependencies": [
+      "mod_MinecraftForge",
+      "elementcore@[0.2.5,0.3.0)"
+    ]
+  }
+]

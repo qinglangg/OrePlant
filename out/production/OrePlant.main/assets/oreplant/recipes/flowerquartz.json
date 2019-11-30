@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "oreplant:recipes",
+  "ingredients": [
+    {
+      "item": "oreplant:flowerquartz"
+    }
+  ],
+  "result": {
+    "item":"minecraft:quartz"
+  }
+}

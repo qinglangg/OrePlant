@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0"
+version = "1.1.0"
 group= "com.ore.oreplant" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "oreplant"
 
@@ -68,4 +68,13 @@ processResources
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
+}
+
+task deobfJar(type: Jar) {
+    from(sourceSets.main.output)
+    archiveName = "${baseName}-${version}-deobf.${extension}"
+}
+
+artifacts {
+    archives deobfJar
 }
