@@ -1,6 +1,5 @@
 package com.ore.oreplant.config;
 
-import com.elementtimes.elementcore.api.annotation.ModNetwork;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
@@ -8,7 +7,6 @@ import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +18,6 @@ import java.util.function.Consumer;
  * 用于同步客户端与服务端的配置文件
  * @author luqin2007
  */
-@ModNetwork(handlerClass = "com.ore.oreplant.config.ConfigNetwork", side = Side.SERVER)
 public class ConfigNetwork implements IMessage, IMessageHandler<ConfigNetwork, IMessage> {
 
     private static final Consumer<Object> EMPTY = (o) -> {};

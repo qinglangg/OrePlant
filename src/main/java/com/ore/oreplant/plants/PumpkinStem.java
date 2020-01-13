@@ -1,6 +1,7 @@
 package com.ore.oreplant.plants;
 
 import com.ore.oreplant.interfaces.IColorProvider;
+import com.ore.oreplant.interfaces.IStateMapProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStem;
 import net.minecraft.block.state.IBlockState;
@@ -9,14 +10,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 /**
  * 矿物南瓜藤
  * @author luqin2007
  */
-public class PumpkinStem extends BlockStem implements IColorProvider {
+public class PumpkinStem extends BlockStem implements IColorProvider, IStateMapProvider {
+
+    private static Object mapper = null;
 
     private final Block colorBlock;
     private final Supplier<Item> seed;
@@ -27,7 +29,6 @@ public class PumpkinStem extends BlockStem implements IColorProvider {
         this.colorBlock = color;
     }
 
-    @Nullable
     @Override
     protected Item getSeedItem() {
         return seed.get();
@@ -36,5 +37,13 @@ public class PumpkinStem extends BlockStem implements IColorProvider {
     @Override
     public int getColor(IBlockAccess world, IBlockState state, BlockPos pos, ItemStack stack) {
         return colorBlock.getDefaultState().getMapColor(world, pos).colorValue;
+    }
+
+    @Override
+    public net.minecraft.client.renderer.block.statemap.StateMapperBase getStateMapper() {
+        if (mapper == null) {
+            mapper = new com.ore.oreplant.render.PumpkinStemMap();
+        }
+        return (net.minecraft.client.renderer.block.statemap.StateMapperBase) mapper;
     }
 }

@@ -3,6 +3,7 @@ package com.ore.oreplant.plants.tree;
 import com.ore.oreplant.OreTabs;
 import com.ore.oreplant.generator.TreeGenerators;
 import com.ore.oreplant.interfaces.IDecorator;
+import com.ore.oreplant.interfaces.IStateMapProvider;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.BlockStateContainer;
@@ -15,8 +16,9 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.event.terraingen.TerrainGen;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
 import java.util.Random;
 import java.util.function.Supplier;
 
@@ -24,7 +26,9 @@ import java.util.function.Supplier;
  * 树苗
  * @author luqin2007
  */
-public class Sapling extends BlockSapling implements IDecorator {
+public class Sapling extends BlockSapling implements IDecorator, IStateMapProvider {
+
+    private static Object mapper = null;
 
     private Supplier<TreeGenerators> generatorSupplier;
     private TreeGenerators generator = null;
@@ -36,13 +40,11 @@ public class Sapling extends BlockSapling implements IDecorator {
     }
 
     @Override
-    @Nonnull
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, TYPE, STAGE);
     }
 
     @Override
-    @Nonnull
     public IBlockState getStateFromMeta(int meta) {
         getDefaultState().withProperty(STAGE, (meta & 1) == 1 ? 1 : 0);
         return super.getStateFromMeta(meta);
@@ -54,14 +56,13 @@ public class Sapling extends BlockSapling implements IDecorator {
     }
 
     @Override
-    @Nonnull
     public String getLocalizedName() {
         //noinspection deprecation
         return I18n.translateToLocal(this.getUnlocalizedName() + ".name");
     }
 
     @Override
-    public boolean isTypeAt(World worldIn, @Nonnull BlockPos pos, BlockPlanks.EnumType type) {
+    public boolean isTypeAt(World worldIn, BlockPos pos, BlockPlanks.EnumType type) {
         return false;
     }
 
@@ -83,7 +84,7 @@ public class Sapling extends BlockSapling implements IDecorator {
         items.add(new ItemStack(this));
     }
     @Override
-    public void generateTree(@Nonnull World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, @Nonnull Random rand) {
+    public void generateTree( World worldIn, BlockPos pos,  IBlockState state,  Random rand) {
         if (net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) {
             worldIn.setBlockToAir(pos);
             if (!getGenerators().getGrower().generate(worldIn, rand, pos) && worldIn.isAirBlock(pos)) {
@@ -100,5 +101,14 @@ public class Sapling extends BlockSapling implements IDecorator {
     @Override
     public boolean canDecorator(World world, Random rand, BlockPos pos, ChunkPos chunkPos) {
         return getGenerators().getDecorator() != null && TerrainGen.saplingGrowTree(world, rand, pos);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public net.minecraft.client.renderer.block.statemap.StateMapperBase getStateMapper() {
+        if (mapper == null) {
+            mapper = new com.ore.oreplant.render.SaplingMap();
+        }
+        return (net.minecraft.client.renderer.block.statemap.StateMapperBase) mapper;
     }
 }

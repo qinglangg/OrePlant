@@ -1,6 +1,6 @@
 package com.ore.oreplant.event;
 
-import com.elementtimes.elementcore.api.common.ECModContainer;
+import com.ore.oreplant.Register;
 import com.ore.oreplant.interfaces.IDecorator;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
@@ -26,11 +26,9 @@ public class GeneratorHandler {
             Random rand = event.getRand();
             ChunkPos chunkPos = event.getChunkPos();
             BlockPos pos = chunkPos.getBlock(0, 0, 0);
-            for (ECModContainer container : ECModContainer.MODS.values()) {
-                for (Block block : container.elements.blocks.values()) {
-                    if (block instanceof IDecorator && ((IDecorator) block).canDecorator(world, rand, pos, chunkPos)) {
-                        ((IDecorator) block).decorate(world, rand, pos);
-                    }
+            for (Block block : Register.blocks.values()) {
+                if (block instanceof IDecorator && ((IDecorator) block).canDecorator(world, rand, pos, chunkPos)) {
+                    ((IDecorator) block).decorate(world, rand, pos);
                 }
             }
         }

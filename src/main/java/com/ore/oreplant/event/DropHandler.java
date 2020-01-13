@@ -1,6 +1,6 @@
 package com.ore.oreplant.event;
 
-import com.elementtimes.elementcore.api.common.ECModContainer;
+import com.ore.oreplant.Register;
 import com.ore.oreplant.interfaces.IDropEvent;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.world.BlockEvent;
@@ -17,11 +17,9 @@ public class DropHandler {
     @SubscribeEvent
     public static void onDrop(BlockEvent.HarvestDropsEvent event) {
         if (!event.getWorld().isRemote) {
-            for (ECModContainer container : ECModContainer.MODS.values()) {
-                for (Item item : container.elements.items.values()) {
-                    if (item instanceof IDropEvent) {
-                        ((IDropEvent) item).onDrop(event);
-                    }
+            for (Item item : Register.items.values()) {
+                if (item instanceof IDropEvent) {
+                    ((IDropEvent) item).onDrop(event);
                 }
             }
         }

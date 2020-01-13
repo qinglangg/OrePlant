@@ -7,9 +7,7 @@ import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
@@ -17,8 +15,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import javax.annotation.Nonnull;
-import java.util.List;
 import java.util.function.Supplier;
 
 /**
@@ -35,7 +31,7 @@ public class Wheat extends BlockCrops {
     }
 
     @Override
-    public void getDrops(NonNullList<ItemStack> drops, @Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull IBlockState state, int fortune) {
+    public void getDrops(NonNullList<ItemStack> drops,  IBlockAccess world,  BlockPos pos,  IBlockState state, int fortune) {
         drops.add(seed.get());
         if (isMaxAge(state)) {
             drops.add(drop.get());

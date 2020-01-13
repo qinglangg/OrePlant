@@ -9,8 +9,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-import javax.annotation.Nonnull;
-
 /**
  * 原木
  * @author luqin2007
@@ -27,14 +25,12 @@ public class Wood extends BlockLog {
     }
 
     @Override
-    @Nonnull
     @SuppressWarnings("deprecation")
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
         return mStateColor.getMapColor(worldIn, pos);
     }
 
     @Override
-    @Nonnull
     public IBlockState getStateFromMeta(int meta) {
         IBlockState state = getDefaultState();
         if ((meta & 0b0001) == 0b0001) {
@@ -59,7 +55,6 @@ public class Wood extends BlockLog {
     }
 
     @Override
-    @Nonnull
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, LOG_AXIS);
     }

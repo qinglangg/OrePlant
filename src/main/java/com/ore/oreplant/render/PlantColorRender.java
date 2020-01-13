@@ -13,8 +13,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
-
 /**
  * 对于实现 IColorProvider 接口的物品和方块的染色
  * @author luqin2007
@@ -23,8 +21,10 @@ import javax.annotation.Nullable;
 @SuppressWarnings("unused")
 public class PlantColorRender implements IItemColor, IBlockColor {
 
+    public static PlantColorRender INSTANCE = new PlantColorRender();
+
     @Override
-    public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
+    public int colorMultiplier(IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) {
         Block block = state.getBlock();
         if (block instanceof IColorProvider) {
             return ((IColorProvider) block).getColor(worldIn, state, pos, null);

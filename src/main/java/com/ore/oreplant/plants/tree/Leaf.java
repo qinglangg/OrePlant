@@ -1,8 +1,8 @@
 package com.ore.oreplant.plants.tree;
 
-import com.elementtimes.elementcore.api.common.ECUtils;
 import com.ore.oreplant.OreTabs;
 import com.ore.oreplant.interfaces.IColorProvider;
+import com.ore.oreplant.interfaces.IStateMapProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
@@ -14,8 +14,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
-import javax.annotation.Nonnull;
 import java.util.Random;
 import java.util.function.Supplier;
 
@@ -23,17 +24,18 @@ import java.util.function.Supplier;
  * 树叶
  * @author luqin2007
  */
-public class Leaf extends BlockLeaves implements IColorProvider {
+public class Leaf extends BlockLeaves implements IColorProvider, IStateMapProvider {
+
+    private static Object mapper = null;
 
     private final Supplier<BlockSapling> sapling;
-
     private final IBlockState colorState;
 
     public Leaf(Block color, Supplier<BlockSapling> sapling) {
         setCreativeTab(OreTabs.TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, false).withProperty(DECAYABLE, true));
         this.sapling = sapling;
-        if (ECUtils.common.isClient()) {
+        if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
             net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getMinecraft();
             setGraphicsLevel(mc.gameSettings.fancyGraphics);
         }
@@ -41,7 +43,6 @@ public class Leaf extends BlockLeaves implements IColorProvider {
     }
 
     @Override
-    @Nonnull
     @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(DECAYABLE, (meta & 4) == 0).withProperty(CHECK_DECAY, (meta & 8) > 0);
@@ -66,25 +67,30 @@ public class Leaf extends BlockLeaves implements IColorProvider {
     }
 
     @Override
-    @Nonnull
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, CHECK_DECAY, DECAYABLE);
     }
 
     @Override
-    @Nonnull
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(sapling.get());
     }
 
     @Override
-    @Nonnull
-    public NonNullList<ItemStack> onSheared(@Nonnull ItemStack item, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune) {
+    public NonNullList<ItemStack> onSheared( ItemStack item, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune) {
         return NonNullList.withSize(1, new ItemStack(this));
     }
 
     @Override
     public int getColor(IBlockAccess world, IBlockState state, BlockPos pos, ItemStack stack) {
         return colorState.getMapColor(world, pos).colorValue;
+    }
+
+    @Override
+    public net.minecraft.client.renderer.block.statemap.StateMapperBase getStateMapper() {
+        if (mapper == null) {
+            mapper = new com.ore.oreplant.render.LeafMap();
+        }
+        return (net.minecraft.client.renderer.block.statemap.StateMapperBase) mapper;
     }
 }

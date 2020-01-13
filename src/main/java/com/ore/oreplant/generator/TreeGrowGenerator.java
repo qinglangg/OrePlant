@@ -6,7 +6,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 
-import javax.annotation.Nonnull;
 import java.util.Random;
 
 /**
@@ -20,7 +19,7 @@ public class TreeGrowGenerator extends WorldGenTrees {
     }
 
     @Override
-    public boolean generate(@Nonnull World worldIn, Random rand, BlockPos position) {
+    public boolean generate( World worldIn, Random rand, BlockPos position) {
         return super.generate(worldIn, rand, worldIn.getHeight(position));
     }
 }

@@ -1,6 +1,6 @@
 package com.ore.oreplant.config;
 
-import com.ore.oreplant.OrePlant;
+import com.ore.oreplant.Register;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -21,7 +21,7 @@ public class ConfigEvent {
     @SubscribeEvent
     public static void onConfigurationChanged(ConfigChangedEvent.PostConfigChangedEvent event) {
         if (ConfigNetwork.SI.contains(event.getModID())) {
-            OrePlant.CONTAINER.elements.channel.sendToServer(new ConfigNetwork(event.getModID()));
+            Register.channel.sendToServer(new ConfigNetwork(event.getModID()));
         }
     }
 }

@@ -1,7 +1,9 @@
 package com.ore.oreplant.render;
 
+import com.google.common.collect.ImmutableMap;
 import com.ore.oreplant.plants.PumpkinStem;
 import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
@@ -10,7 +12,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
 import java.util.Collections;
 
 /**
@@ -18,17 +19,16 @@ import java.util.Collections;
  * @author luqin2007
  */
 @SideOnly(Side.CLIENT)
-@SuppressWarnings("unused")
 public class PumpkinStemMap extends StateMapperBase {
 
     public static IBlockState STEM_STATE = Blocks.PUMPKIN_STEM.getDefaultState();
 
     @Override
-    @Nonnull
-    protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {
+    protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
         EnumFacing facing = state.getValue(PumpkinStem.FACING);
         if (facing == EnumFacing.UP) {
-            return new ModelResourceLocation(Block.REGISTRY.getNameForObject(STEM_STATE.getBlock()), this.getPropertyString(state.getProperties()));
+            ImmutableMap<IProperty<?>, Comparable<?>> properties = state.getProperties();
+            return new ModelResourceLocation(Block.REGISTRY.getNameForObject(STEM_STATE.getBlock()), getPropertyString(properties));
         } else {
             return new ModelResourceLocation(Block.REGISTRY.getNameForObject(STEM_STATE.getBlock()), getPropertyString(Collections.singletonMap(PumpkinStem.FACING, facing)));
         }
