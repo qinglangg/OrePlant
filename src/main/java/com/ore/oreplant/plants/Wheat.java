@@ -1,6 +1,6 @@
 package com.ore.oreplant.plants;
 
-import com.ore.oreplant.OreTabs;
+import com.ore.oreplant.OrePlant;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -35,7 +35,7 @@ public class Wheat extends BlockCrops {
         this.drop = drop;
         this.seed = seed;
         this.textureKey = textureKey;
-        setCreativeTab(OreTabs.TAB);
+        setCreativeTab(OrePlant.TAB);
     }
 
     @Override

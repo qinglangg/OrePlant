@@ -1,7 +1,7 @@
 package com.ore.oreplant.plants;
 
 import com.google.common.collect.Lists;
-import com.ore.oreplant.OreTabs;
+import com.ore.oreplant.OrePlant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStem;
 import net.minecraft.creativetab.CreativeTabs;
@@ -31,7 +31,7 @@ public class PumpkinStem extends BlockStem {
         this.color = color;
         this.seed = seed;
         this.colorBlock = colorBlock;
-        setCreativeTab(OreTabs.TAB);
+        setCreativeTab(OrePlant.TAB);
         setHardness(0.0F);
         setStepSound(soundTypeWood);
         setBlockTextureName("pumpkin_stem");

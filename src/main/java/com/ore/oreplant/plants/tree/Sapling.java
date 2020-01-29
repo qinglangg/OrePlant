@@ -1,6 +1,6 @@
 package com.ore.oreplant.plants.tree;
 
-import com.ore.oreplant.OreTabs;
+import com.ore.oreplant.OrePlant;
 import com.ore.oreplant.generator.TreeGenerators;
 import com.ore.oreplant.interfaces.IDecorator;
 import cpw.mods.fml.relauncher.Side;
@@ -28,7 +28,7 @@ public class Sapling extends BlockSapling implements IDecorator {
         super();
         this.textureName = textureKey;
         this.generator = generator;
-        setCreativeTab(OreTabs.TAB);
+        setCreativeTab(OrePlant.TAB);
         setHardness(0.0F);
         setStepSound(soundTypeGrass);
     }

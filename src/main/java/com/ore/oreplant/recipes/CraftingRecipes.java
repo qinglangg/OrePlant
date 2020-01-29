@@ -1,8 +1,10 @@
 package com.ore.oreplant.recipes;
 
+import com.ore.oreplant.Crops;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -51,5 +53,26 @@ public class CraftingRecipes {
                 GameRegistry.addRecipe(recipe);
             } catch (IllegalAccessException ignored) { }
         }
+
+        GameRegistry.addRecipe(new ShapedOreRecipe(createItemStack("orereed:reedcoal", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:coal", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0)));
+        GameRegistry.addRecipe(new ShapedOreRecipe(createItemStack("orereed:reeddiamond", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:diamond", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0)));
+        GameRegistry.addRecipe(new ShapedOreRecipe(createItemStack("orereed:reedemerald", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:emerald", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0)));
+        GameRegistry.addRecipe(new ShapedOreRecipe(createItemStack("orereed:reedgold", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:gold_ingot", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0)));
+        GameRegistry.addRecipe(new ShapedOreRecipe(createItemStack("orereed:reediron", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:iron_ingot", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0)));
+        GameRegistry.addRecipe(new ShapedOreRecipe(createItemStack("orereed:reedlapis", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:dye", 1, 4), 'B', createItemStack("minecraft:reeds", 1, 0)));
+        GameRegistry.addRecipe(new ShapedOreRecipe(createItemStack("orereed:reedredstone", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:redstone", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0)));
+        GameRegistry.addRecipe(new ShapedOreRecipe(createItemStack("orereed:reedquartz", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:quartz", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0)));
+        GameRegistry.addRecipe(new ShapedOreRecipe(createItemStack("orereed:reedobsidian", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:obsidian", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0)));
+        GameRegistry.addRecipe(new ShapedOreRecipe(createItemStack("orereed:reedglowstone", 1, 0), "ABA", "BAB", "ABA", 'A', createItemStack("minecraft:glowstone_dust", 1, 0), 'B', createItemStack("minecraft:reeds", 1, 0)));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.coal, 1, 0), new ItemStack(Crops.flowerCoal));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.diamond), new ItemStack(Crops.flowerDiamond));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.emerald), new ItemStack(Crops.flowerEmerald));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.glowstone_dust), new ItemStack(Crops.flowerGlowstone));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.gold_ingot), new ItemStack(Crops.flowerGold));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.iron_ingot), new ItemStack(Crops.flowerIron));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 4), new ItemStack(Crops.flowerLapis));
+        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.obsidian), new ItemStack(Crops.flowerObsidian));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.quartz), new ItemStack(Crops.flowerQuartz));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.redstone), new ItemStack(Crops.flowerRedstone));
     }
 }

@@ -1,6 +1,6 @@
 package com.ore.oreplant.plants;
 
-import com.ore.oreplant.OreTabs;
+import com.ore.oreplant.OrePlant;
 import com.ore.oreplant.interfaces.IDropEvent;
 import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
@@ -12,7 +12,7 @@ import net.minecraftforge.event.world.BlockEvent;
 public class Seed extends ItemSeeds implements IDropEvent {
     public Seed(Block crop, String key) {
         super(crop, Blocks.farmland);
-        setCreativeTab(OreTabs.TAB);
+        setCreativeTab(OrePlant.TAB);
         setTextureName("oreplant:" + key);
     }
 

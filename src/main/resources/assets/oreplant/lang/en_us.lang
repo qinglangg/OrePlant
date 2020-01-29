@@ -92,3 +92,14 @@ tile.oreplant.iron_ore2.name=iron_ore
 tile.oreplant.gold_ore.name=gold_ore
 tile.oreplant.diamond_ore.name=diamond_ore
 tile.oreplant.iron_ore.name=iron_ore
+# flower
+tile.oreplant.flowercoal.name=Coal Flower
+tile.oreplant.flowerdiamond.name=Diamond Flower
+tile.oreplant.floweremerald.name=Emerald Flower
+tile.oreplant.flowergold.name=Gold Flower
+tile.oreplant.floweriron.name=Iron Flower
+tile.oreplant.flowerlapis.name=Lapis Flower
+tile.oreplant.flowerredstone.name=Redstone Flower
+tile.oreplant.flowerquartz.name=Quartz Flower
+tile.oreplant.flowerobsidian.name=Obsidian Flower
+tile.oreplant.flowerglowstone.name=Glowstone Flower

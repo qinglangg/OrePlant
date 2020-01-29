@@ -1,6 +1,10 @@
 package com.ore.oreplant;
 
+import com.ore.oreplant.config.FlowerConfig;
+import com.ore.oreplant.config.ReedConfig;
+import com.ore.oreplant.plants.Flower;
 import com.ore.oreplant.plants.PumpkinStem;
+import com.ore.oreplant.plants.Reeds;
 import com.ore.oreplant.plants.Wheat;
 import com.ore.oreplant.plants.tree.Leaf;
 import com.ore.oreplant.plants.tree.Wood;
@@ -55,4 +59,26 @@ public class Crops {
     public static Leaf leafQuartz = new Leaf(Blocks.quartz_block, () -> Seeds.saplingQuartz);
     public static Leaf leafObsidian = new Leaf(Blocks.obsidian, () -> Seeds.saplingObsidian);
     public static Leaf leafGlowstone = new Leaf(Blocks.glowstone, () -> Seeds.saplingGlowstone);
+
+    public static Reeds reedCoal = new Reeds(Blocks.coal_block, "reedcoal", () -> ReedConfig.coal);
+    public static Reeds reedDiamond = new Reeds(Blocks.diamond_block, "reeddiamond", () -> ReedConfig.diamond);
+    public static Reeds reedEmerald = new Reeds(Blocks.emerald_block, "reedemerald", () -> ReedConfig.emerald);
+    public static Reeds reedGold = new Reeds(Blocks.gold_block, "reedgold", () -> ReedConfig.gold);
+    public static Reeds reedIron = new Reeds(Blocks.iron_block, "reediron", () -> ReedConfig.iron);
+    public static Reeds reedLapis = new Reeds(Blocks.lapis_block, "reedlapis", () -> ReedConfig.lapis);
+    public static Reeds reedRedstone = new Reeds(Blocks.redstone_block, "reedredstone", () -> ReedConfig.redstone);
+    public static Reeds reedQuartz = new Reeds(Blocks.quartz_block, "reedquartz", () -> ReedConfig.quartz);
+    public static Reeds reedObsidian = new Reeds(Blocks.obsidian, "reedobsidian", () -> ReedConfig.obsidian);
+    public static Reeds reedGlowstone = new Reeds(Blocks.glowstone, "reedglowstone", () -> ReedConfig.glowstone);
+
+    public static Flower flowerCoal = new Flower(Blocks.coal_block, "coal", () -> FlowerConfig.coalProbability, () -> FlowerConfig.coalCount);
+    public static Flower flowerDiamond = new Flower(Blocks.diamond_block, "diamond", () -> FlowerConfig.diamondProbability, () -> FlowerConfig.diamondCount);
+    public static Flower flowerEmerald = new Flower(Blocks.emerald_block, "emerald", () -> FlowerConfig.emeraldProbability, () -> FlowerConfig.emeraldCount);
+    public static Flower flowerGold = new Flower(Blocks.gold_block, "gold", () -> FlowerConfig.goldProbability, () -> FlowerConfig.goldCount);
+    public static Flower flowerIron = new Flower(Blocks.iron_block, "iron", () -> FlowerConfig.ironProbability, () -> FlowerConfig.ironCount);
+    public static Flower flowerLapis = new Flower(Blocks.lapis_block, "lapis", () -> FlowerConfig.lapisProbability, () -> FlowerConfig.lapisCount);
+    public static Flower flowerRedstone = new Flower(Blocks.redstone_block, "redstone", () -> FlowerConfig.redstoneProbability, () -> FlowerConfig.redstoneCount);
+    public static Flower flowerQuartz = new Flower(Blocks.quartz_block, "quartz", () -> FlowerConfig.quartzProbability, () -> FlowerConfig.quartzCount);
+    public static Flower flowerObsidian = new Flower(Blocks.obsidian, "obsidian", () -> FlowerConfig.obsidianProbability, () -> FlowerConfig.obsidianCount);
+    public static Flower flowerGlowstone = new Flower(Blocks.glowstone, "glowstone", () -> FlowerConfig.glowstoneProbability, () -> FlowerConfig.glowstoneCount);
 }

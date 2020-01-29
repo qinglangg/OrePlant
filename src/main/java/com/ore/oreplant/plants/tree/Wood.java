@@ -1,6 +1,6 @@
 package com.ore.oreplant.plants.tree;
 
-import com.ore.oreplant.OreTabs;
+import com.ore.oreplant.OrePlant;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockLog;
@@ -19,7 +19,7 @@ public class Wood extends BlockLog {
 
     public Wood(String textureKey) {
         this.textureKey = textureKey;
-        setCreativeTab(OreTabs.TAB);
+        setCreativeTab(OrePlant.TAB);
     }
 
     @Override

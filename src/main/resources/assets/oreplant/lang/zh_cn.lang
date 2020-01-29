@@ -92,3 +92,14 @@ tile.oreplant.iron_ore2.name=精致铁矿石
 tile.oreplant.gold_ore.name=劣质金矿石
 tile.oreplant.diamond_ore.name=劣质钻石矿石
 tile.oreplant.iron_ore.name=劣质铁矿石
+# flower
+tile.oreplant.flowercoal.name=煤花
+tile.oreplant.flowerdiamond.name=钻石花
+tile.oreplant.floweremerald.name=绿宝石花
+tile.oreplant.flowergold.name=金花
+tile.oreplant.floweriron.name=铁花
+tile.oreplant.flowerlapis.name=青金石花
+tile.oreplant.flowerredstone.name=红石花
+tile.oreplant.flowerquartz.name=石英花
+tile.oreplant.flowerobsidian.name=黑曜石花
+tile.oreplant.flowerglowstone.name=萤石花

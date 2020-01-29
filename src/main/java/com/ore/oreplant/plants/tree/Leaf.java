@@ -1,7 +1,7 @@
 package com.ore.oreplant.plants.tree;
 
 import com.google.common.collect.Lists;
-import com.ore.oreplant.OreTabs;
+import com.ore.oreplant.OrePlant;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -27,7 +27,7 @@ public class Leaf extends BlockLeaves {
     private final Block colorBlock;
 
     public Leaf(Block color, Supplier<BlockSapling> sapling) {
-        setCreativeTab(OreTabs.TAB);
+        setCreativeTab(OrePlant.TAB);
         this.sapling = sapling;
         if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) {
             net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getMinecraft();
