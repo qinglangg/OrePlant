@@ -1,6 +1,6 @@
 package com.ore.oreplant;
 
-import com.ore.oreplant.generator.TreeGenerators;
+import com.ore.oreplant.config.TreeConfig;
 import com.ore.oreplant.plants.Seed;
 import com.ore.oreplant.plants.tree.Sapling;
 import net.minecraft.item.Item;
@@ -29,14 +29,14 @@ public class Seeds {
     public static Item seedPumpkinObsidian = new Seed(Crops.pumpkinObsidianStem, "pumpkin_obsidian");
     public static Item seedPumpkinGlowstone = new Seed(Crops.pumpkinGlowstoneStem, "pumpkin_glowstone");
 
-    public static Sapling saplingCoal = new Sapling("coal", () -> new TreeGenerators(Crops.woodCoal, Crops.leafCoal, Seeds.saplingCoal));
-    public static Sapling saplingDiamond = new Sapling("diamond", () -> new TreeGenerators(Crops.woodDiamond, Crops.leafDiamond, Seeds.saplingCoal));
-    public static Sapling saplingEmerald = new Sapling("emerald", () -> new TreeGenerators(Crops.woodEmerald, Crops.leafEmerald, Seeds.saplingCoal));
-    public static Sapling saplingGold = new Sapling("gold", () -> new TreeGenerators(Crops.woodGold, Crops.leafGold, Seeds.saplingCoal));
-    public static Sapling saplingIron = new Sapling("iron", () -> new TreeGenerators(Crops.woodIron, Crops.leafIron, Seeds.saplingCoal));
-    public static Sapling saplingLapis = new Sapling("lapis", () -> new TreeGenerators(Crops.woodLapis, Crops.leafLapis, Seeds.saplingCoal));
-    public static Sapling saplingRedstone = new Sapling("redstone", () -> new TreeGenerators(Crops.woodRedstone, Crops.leafRedstone, Seeds.saplingCoal));
-    public static Sapling saplingQuartz = new Sapling("quartz", () -> new TreeGenerators(Crops.woodQuartz, Crops.leafQuartz, Seeds.saplingCoal));
-    public static Sapling saplingObsidian = new Sapling("obsidian", () -> new TreeGenerators(Crops.woodObsidian, Crops.leafObsidian, Seeds.saplingCoal));
-    public static Sapling saplingGlowstone = new Sapling("glowstone", () -> new TreeGenerators(Crops.woodGlowstone, Crops.leafGlowstone, Seeds.saplingGlowstone));
+    public static Sapling saplingCoal = new Sapling("coal", () -> Crops.woodCoal, () -> Crops.leafCoal, () -> TreeConfig.coal);
+    public static Sapling saplingDiamond = new Sapling("diamond", () -> Crops.woodDiamond, () -> Crops.leafDiamond, () -> TreeConfig.diamond);
+    public static Sapling saplingEmerald = new Sapling("emerald", () -> Crops.woodEmerald, () -> Crops.leafEmerald, () -> TreeConfig.emerald);
+    public static Sapling saplingGold = new Sapling("gold", () -> Crops.woodGold, () -> Crops.leafGold, () -> TreeConfig.gold);
+    public static Sapling saplingIron = new Sapling("iron", () -> Crops.woodIron, () -> Crops.leafIron, () -> TreeConfig.iron);
+    public static Sapling saplingLapis = new Sapling("lapis", () -> Crops.woodLapis, () -> Crops.leafLapis, () -> TreeConfig.lapis);
+    public static Sapling saplingRedstone = new Sapling("redstone", () -> Crops.woodRedstone, () -> Crops.leafRedstone, () -> TreeConfig.redstone);
+    public static Sapling saplingQuartz = new Sapling("quartz", () -> Crops.woodQuartz, () -> Crops.leafQuartz, () -> TreeConfig.quartz);
+    public static Sapling saplingObsidian = new Sapling("obsidian", () -> Crops.woodObsidian, () -> Crops.leafObsidian, () -> TreeConfig.obsidian);
+    public static Sapling saplingGlowstone = new Sapling("glowstone", () -> Crops.woodGlowstone, () -> Crops.leafGlowstone, () -> TreeConfig.glowstone);
 }

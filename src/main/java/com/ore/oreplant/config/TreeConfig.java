@@ -1,12 +1,6 @@
 package com.ore.oreplant.config;
 
-import com.ore.oreplant.Seeds;
-import com.ore.oreplant.generator.TreeGenerator;
-import com.ore.oreplant.generator.TreeGenerators;
-import com.ore.oreplant.plants.tree.Sapling;
 import net.minecraftforge.common.config.Configuration;
-
-import java.util.function.DoubleSupplier;
 
 /**
  * 配置
@@ -37,22 +31,5 @@ public class TreeConfig {
             lapis = config.get("tree",     "lapis", 0.005,     "Lapis Tree Probability").getDouble();
           diamond = config.get("tree",   "diamond", 0.001,   "Diamond Tree Probability").getDouble();
           emerald = config.get("tree",   "emerald", 0.001,   "Emerald Tree Probability").getDouble();
-
-        setDecorator(Seeds.saplingCoal, () -> TreeConfig.coal);
-        setDecorator(Seeds.saplingDiamond, () -> TreeConfig.diamond);
-        setDecorator(Seeds.saplingEmerald, () -> TreeConfig.emerald);
-        setDecorator(Seeds.saplingGlowstone, () -> TreeConfig.glowstone);
-        setDecorator(Seeds.saplingGold, () -> TreeConfig.gold);
-        setDecorator(Seeds.saplingIron, () -> TreeConfig.iron);
-        setDecorator(Seeds.saplingLapis, () -> TreeConfig.lapis);
-        setDecorator(Seeds.saplingObsidian, () -> TreeConfig.obsidian);
-        setDecorator(Seeds.saplingQuartz, () -> TreeConfig.quartz);
-        setDecorator(Seeds.saplingRedstone, () -> TreeConfig.redstone);
-    }
-
-    private static void setDecorator(Sapling sapling, DoubleSupplier probabilityGetter) {
-        TreeGenerators generators = sapling.getGenerators();
-        generators.setCanGenerator(TreeConfig.generate);
-        generators.setDecorator(new TreeGenerator(false, generators.wood, generators.leaf, generators.sapling, probabilityGetter));
     }
 }
