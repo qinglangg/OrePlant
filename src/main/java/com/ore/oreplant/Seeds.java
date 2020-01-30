@@ -4,6 +4,7 @@ import com.ore.oreplant.generator.TreeGenerators;
 import com.ore.oreplant.plants.Seed;
 import com.ore.oreplant.plants.tree.Sapling;
 import net.minecraft.item.Item;
+import net.minecraft.util.text.TextFormatting;
 
 /**
  * 所有种子/树苗等

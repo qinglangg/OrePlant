@@ -1,0 +1,13 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cross",
+    "textures": {
+      "cross": "oreplant:blocks/lapis_flower"
+    }
+  },
+  "variants": {
+    "inventory": [{}],
+    "normal": [{}]
+  }
+}

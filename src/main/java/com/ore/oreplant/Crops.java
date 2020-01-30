@@ -1,10 +1,14 @@
 package com.ore.oreplant;
 
+import com.ore.oreplant.config.Configuration;
+import com.ore.oreplant.plants.Flower;
 import com.ore.oreplant.plants.PumpkinStem;
+import com.ore.oreplant.plants.Reeds;
 import com.ore.oreplant.plants.Wheat;
 import com.ore.oreplant.plants.tree.Leaf;
 import com.ore.oreplant.plants.tree.Wood;
 import net.minecraft.block.BlockCrops;
+import net.minecraft.block.BlockReed;
 import net.minecraft.block.BlockStem;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -60,4 +64,26 @@ public class Crops {
     public static Leaf leafQuartz = new Leaf(Blocks.QUARTZ_BLOCK, () -> Seeds.saplingQuartz);
     public static Leaf leafObsidian = new Leaf(Blocks.OBSIDIAN, () -> Seeds.saplingObsidian);
     public static Leaf leafGlowstone = new Leaf(Blocks.GLOWSTONE, () -> Seeds.saplingGlowstone);
+
+    public static Flower flowerCoal = new Flower(Blocks.COAL_BLOCK, () -> Configuration.flower.coalProbability, () -> Configuration.flower.coalCount);
+    public static Flower flowerDiamond = new Flower(Blocks.DIAMOND_BLOCK, () -> Configuration.flower.diamondProbability, () -> Configuration.flower.diamondCount);
+    public static Flower flowerEmerald = new Flower(Blocks.EMERALD_BLOCK, () -> Configuration.flower.emeraldProbability, () -> Configuration.flower.emeraldCount);
+    public static Flower flowerGold = new Flower(Blocks.GOLD_BLOCK, () -> Configuration.flower.goldProbability, () -> Configuration.flower.goldCount);
+    public static Flower flowerIron = new Flower(Blocks.IRON_BLOCK, () -> Configuration.flower.ironProbability, () -> Configuration.flower.ironCount);
+    public static Flower flowerLapis = new Flower(Blocks.LAPIS_BLOCK, () -> Configuration.flower.lapisProbability, () -> Configuration.flower.lapisCount);
+    public static Flower flowerRedstone = new Flower(Blocks.REDSTONE_BLOCK, () -> Configuration.flower.redstoneProbability, () -> Configuration.flower.redstoneCount);
+    public static Flower flowerQuartz = new Flower(Blocks.QUARTZ_BLOCK, () -> Configuration.flower.quartzProbability, () -> Configuration.flower.quartzCount);
+    public static Flower flowerObsidian = new Flower(Blocks.OBSIDIAN, () -> Configuration.flower.obsidianProbability, () -> Configuration.flower.obsidianCount);
+    public static Flower flowerGlowstone = new Flower(Blocks.GLOWSTONE, () -> Configuration.flower.glowstoneProbability, () -> Configuration.flower.glowstoneCount);
+
+    public static BlockReed reedCoal = new Reeds(Blocks.COAL_ORE, () -> Configuration.reed.coal);
+    public static BlockReed reedDiamond = new Reeds(Blocks.DIAMOND_BLOCK, () -> Configuration.reed.diamond);
+    public static BlockReed reedEmerald = new Reeds(Blocks.EMERALD_BLOCK, () -> Configuration.reed.emerald);
+    public static BlockReed reedGold = new Reeds(Blocks.GOLD_BLOCK, () -> Configuration.reed.gold);
+    public static BlockReed reedIron = new Reeds(Blocks.IRON_BLOCK, () -> Configuration.reed.iron);
+    public static BlockReed reedLapis = new Reeds(Blocks.LAPIS_BLOCK, () -> Configuration.reed.lapis);
+    public static BlockReed reedRedstone = new Reeds(Blocks.REDSTONE_BLOCK, () -> Configuration.reed.redstone);
+    public static BlockReed reedQuartz = new Reeds(Blocks.QUARTZ_BLOCK, () -> Configuration.reed.quartz);
+    public static BlockReed reedObsidian = new Reeds(Blocks.OBSIDIAN, () -> Configuration.reed.obsidian);
+    public static BlockReed reedGlowstone = new Reeds(Blocks.GLOWSTONE, () -> Configuration.reed.glowstone);
 }

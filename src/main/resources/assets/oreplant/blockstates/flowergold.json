@@ -1,0 +1,13 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cross",
+    "textures": {
+      "cross": "oreplant:blocks/gold_flower"
+    }
+  },
+  "variants": {
+    "inventory": [{}],
+    "normal": [{}]
+  }
+}
