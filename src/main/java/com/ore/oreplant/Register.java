@@ -44,7 +44,7 @@ public class Register {
 
     public static void registerBlock(Block block, String name) {
         block.setBlockName(OrePlant.MODID + "." + name);
-        GameRegistry.registerBlock(block, name);
+        GameRegistry.registerBlock(block, ItemColored2.class, name);
         BLOCKS.add(block);
     }
 }

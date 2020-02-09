@@ -89,4 +89,16 @@ public class Leaf extends BlockLeaves {
     public int colorMultiplier(IBlockAccess p_149720_1_, int p_149720_2_, int p_149720_3_, int p_149720_4_) {
         return colorBlock.getMapColor(0).colorValue;
     }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getBlockColor() {
+        return colorBlock.getMapColor(0).colorValue;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderColor(int p_149741_1_) {
+        return colorBlock.getMapColor(0).colorValue;
+    }
 }
