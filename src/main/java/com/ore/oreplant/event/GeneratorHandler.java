@@ -17,10 +17,13 @@ import java.util.Random;
 public class GeneratorHandler {
 
     @SubscribeEvent
-    public void onTreeGenerator(DecorateBiomeEvent.Post event) {
-
+    public void onGenerator(DecorateBiomeEvent.Post event) {
         World world = event.world;
         if (!world.isRemote) {
+            if (world.getBiomeGenForCoords(event.chunkX, event.chunkZ).theBiomeDecorator.currentWorld != null) {
+                System.out.println("Warn: Already decorating!!");
+                return;
+            }
             Random rand = event.rand;
             for (Block block : Register.BLOCKS) {
                 Chunk chunk = event.world.getChunkFromChunkCoords(event.chunkX, event.chunkZ);
